@@ -1,0 +1,306 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main-home{
+  width: 100vw;
+  height: 100vh;
+  background-color:#EFF0F4;
+
+}
+
+/* ============================= css for navbar section ============================= */
+.home-nav{
+  width:100%;
+  height:11%;
+  padding: 1vw 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-img{
+  height:4vw;
+  width:4vw;
+}
+.logo-img img{
+  width: 100%;
+  height: 100%;
+  -o-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.home-menu{
+  height:2vw;
+  width:2vw;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding:1.5vw;
+  -o-border-radius: 50%;
+  font-size:1.6vw;
+  background-color: rgb(243, 241, 241);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  box-shadow:5px 5px 5px rgb(191, 190, 190);
+  cursor: pointer;
+}
+.home-menu:hover{
+  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+  
+}
+/* ===================== css for main home page ==============================*/
+.hero{
+  width: 90vw;
+  height:80vh;
+  margin: auto;
+
+}
+.home-text, .home-image{
+  width: 50%;
+  height: 100%;
+}
+.home-text{
+  display: flex;
+  align-items:start;
+  justify-content:center;
+  flex-direction: column;
+}
+.home-text p{
+  color: #5A5A59;
+  font-size:1.5vw;
+  margin:0.2rem 0px;
+}
+.home-text h1{
+  font-size:4vw;
+  font-weight: bolder;
+}
+.home-text span{
+  position: relative;
+}
+.home-text button{
+  width:13vw;
+  height:3vw;
+  margin-top: 2vw;
+  color: #2CB0ED;
+  font-weight: 500;
+  background-color: #f0eded;
+  -webkit-border-radius:40px;
+  -moz-border-radius:40px;
+  -ms-border-radius:40px;
+  -o-border-radius:40px;
+  border-radius:40px;
+  box-shadow:5px 5px 5px rgb(191, 190, 190);
+  cursor: pointer;
+}
+.home-text button:hover{
+  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+  
+}
+.hero-img{
+  width:57%;
+  height: 70%;
+  -o-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+/* ======================= css for  typewriter effect ================================== */
+.home-text span::before{
+  content: "Dipak Chavan";
+  color: #2CB0ED;
+  -webkit-animation: words 20s infinite;
+  animation: words 20s infinite;
+}
+.home-text span::after{
+  content: " ";
+  position: absolute;
+  width:calc( 100% + 8px);
+  height:110%;
+  background-color:#EFF0F4;
+  right: -8px;
+  border-left: 2px solid #737374;
+  -webkit-animation: curser 0.8s infinite,typing 20s steps(14) infinite;
+  animation: curser 0.8s infinite,typing 20s steps(14) infinite;
+}
+/* ========================= animation for typeWriter effect ===================================== */
+@keyframes typing {
+  10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+    width: 0;
+  }
+  5%,20%,25%,40%,45%,60%,65%,80%,85%{
+    width: calc(100% + 8px);
+  }
+  
+}
+@keyframes curser {
+  to{
+    border-left:5px solid #ffffff;  
+  }
+  
+}
+@keyframes words {
+  0%,20%{
+    content: "Dipak Chavan";
+  }
+  21%,40%{
+    content: "Developer";
+  }
+  41%,60%{
+    content: "Freelancer";
+  }
+  61%,80%{
+    content: "IT Engineer";
+  }
+  81%,100%{
+    content: "problem solver";
+  }
+  
+}
+
+   /* ========================== responsive for mobile device =========================== */
+   @media (max-width: 480px) {
+    .home-text h1 {
+      font-size:10vw;
+      
+    }
+    .home-text p{
+      font-size:10vw;
+    }
+    .home-text button {
+      width:50vw;
+      height:14vw;
+      font-size:4.7vw;
+    }
+    .logo-img {
+      height:13vw;
+      width:13vw;
+    }
+    .home-menu {
+      height:10vw;
+      width:10vw;
+      font-size:5vw;
+    }
+    .hero{
+      gap: 20vw;
+    }
+    .hero-img {
+      width:50%;
+      height: auto;
+    }
+  }
+   /* ============================== css for making responsive for laptop device ========================== */
+@media (max-width: 1200px) {
+  .home-text h1 {
+    font-size:4vw;
+    
+  }
+  .main-home{
+    height: 100vh;
+  }
+  .home-text p {
+    font-size:2vw;
+  }
+  .home-text button {
+    width:30vw;
+    height:5vw;
+    font-size: 3vw;
+  }
+  .logo-img {
+    height:5vw;
+    width:5vw;
+  }
+  .home-menu {
+    height:4vw;
+    width:4vw;
+    font-size:2vw;
+  }
+  .hero-img {
+    width:90%;
+    height: auto;
+  }
+  
+}
+/* ========================= css for making responsive for device tablet ========================*/
+@media (max-width: 768px) {
+  .home-text h1 {
+    font-size:7vw;
+  }
+  .main-home{
+    height: 100vh;
+  }
+  .home-text p {
+    font-size:4vw;
+  }
+  .home-text button {
+    width: 29vw;
+    height:6vw;
+    font-size: 3vw;
+  }
+  .logo-img {
+    height:10vw;
+    width:10vw;
+  }
+  .home-menu {
+    height:8vw;
+    width:8vw;
+    font-size:4vw;
+  }
+  .hero {
+    gap: 12vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: auto;
+  }
+  .home-text, .home-image {
+    width:70%;
+    height: auto;
+  }
+  .hero-img {
+    width:60%;
+    height: auto;
+  }
+  
+}
+@media (max-width: 480px) {
+  .home-text h1 {
+    font-size: 8vw;
+  }
+  .home-text p {
+    font-size: 4vw;
+  }
+  .home-text button {
+    width: 40vw;
+    height: 8vw;
+    font-size: 3vw;
+  }
+  .logo-img {
+    height: 10vw;
+    width: 10vw;
+  }
+  .home-menu {
+    height: 8vw;
+    width: 8vw;
+    font-size: 4vw;
+  }
+  .hero {
+    gap: 10vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: auto;
+  }
+  .home-text, .home-image {
+    width: 100%;
+    height: auto;
+  }
+  .hero-img {
+    width: 80%;
+    height: auto;
+  }
+}
