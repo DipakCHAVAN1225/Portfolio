@@ -1,6 +1,7 @@
 import "./skill.css"
 function Education(){
   return (
+    // =========================== it is a education section in skill =====================================
     <>
     <section className=" edu-container bg-red-404">
         <div className="edu-card bg-gray-200 p-8 text-end">

@@ -3,7 +3,7 @@ import Ex from "./Ex";
 import Myskill from "./Myskill";
 import "./skill.css"
 import { useState } from "react";
-
+// ===================== here the functionality to make the button functional===============================
 const Skill=()=> {
   const [content, setContent] = useState(<Myskill/>);
 
@@ -12,6 +12,8 @@ const Skill=()=> {
   };
 
   return (
+    // ================== code for the switch button ==========================================
+
     <div className=" Skill">
       <div className="flex space-x-4 justify-center">
         <button
@@ -33,6 +35,7 @@ const Skill=()=> {
           Education
         </button>
       </div>
+      {/* ====================== code for the shows the section on which user click ================================= */}
       {content && (
         <div className="mt-4">
           <h2 className="text-lg font-semibold">{content}</h2>

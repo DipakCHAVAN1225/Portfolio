@@ -1,5 +1,6 @@
 import "./skill.css";
 function Myskill() {
+  // ============================ is is a skill section =============================
   return (
     <section className="Skill-card">
       <div className="card">
