@@ -129,6 +129,10 @@
 }
 /* ======================================= css to make it responsive for the laptop ==============================  */
 @media (max-width: 1200px) {
+  .Skill{
+    width: 100vw;
+    height: 100vh;
+  }
   .Skill-card {
     margin: auto;
     border: 2px solid red;

@@ -1,3 +1,4 @@
+/* ================== css for the project section ============================== */
 .project-container{
   width: 100vw;
   height: 100vh;
@@ -12,6 +13,8 @@
   font-family: cursive;
   font-weight: 600;
 }
+
+
 .project{
   width: 90vw;
   height:70vw;
@@ -62,51 +65,93 @@
  -ms-transform: translateY(-20%);
  -o-transform: translateY(-20%);
 }
-
-@media (max-width: 1200px) {
-  .project {
-    width: 95vw;
-    
+/* /* ================================== responsive css for the mobile device======================== */
+@media (max-width: 480px) {
+  .project-container {
+      height: auto;
+  }
+  .project{
+    height: auto;
   }
   .project-card {
-    width: 300px;
-  
+    width:100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
   }
   .project-img {
-    width: 16rem;
-    height: 12rem;
+    width: 100%;
+    height: auto;
+  }
+  .h-pro-name, .project-detail {
+    font-size: 1rem;
   }
 }
-
-@media (max-width: 768px) {
-
-  .project{
-
+/* /* ============================= responsive css for the tablet device ==================================== */
+ @media (max-width: 768px) {
+  .project-container {
+    width: 100%;
     height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1rem;
+  }
+  .project {
+    width: 100%;
+    height: auto;
     flex-direction: column;
   }
-  .project-container h1 {
-    font-size: 6vw;
-  }
-  .project-img {
-    width:40rem;
-    height:18rem;
-  }
   .project-card {
-    width:90vw;
-    height:50vh;
+    width: 100%;
     margin: 1rem 0;
   }
+  .project-img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  .h-pro-name, .project-detail {
+    text-align: center;
+  }
 }
+/* /* ========================================= responsive css for the laptop or computer device=========================== */
 
-@media (max-width: 480px) {
-  .project-container h1 {
-    font-size: 8vw;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-container {
+    padding: 2rem;
+    height: auto;
+  }
+  .project{
+    height: auto;
   }
   .project-card {
-    width: 90vw;
+    width: 45%;
+    margin: 1rem;
+  }
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+  .h-pro-name, .project-detail {
+    font-size: 1.2rem;
+  }
+} 
+/* /*===================================responsive for project section ============================ */
+@media (min-width: 1025px) {
+  .project-container {
+    padding: 3rem;
+    height: auto;
+  }
+  .project {
+    width: 80vw;
+    height: auto;
+  }
+  .project-card {
+    width:43%;
+    margin: 1.5rem;
+  }
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+  .h-pro-name, .project-detail {
+    font-size: 1rem;
   }
 }
