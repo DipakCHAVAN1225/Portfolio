@@ -1,3 +1,4 @@
+/* ========================= contact part css here =================================== */
 .contact-container {
   width:100vw;
   height:100vh;
@@ -130,4 +131,72 @@ section textarea:hover{
 }
  .btn:hover{
   box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+} 
+/* ================================ responsive css for medium device =========================================== */
+@media (max-width: 768px) {
+    .contact-container{
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap:6rem;
+    }
+  
+  .contact-detail {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .contact-card {
+    width: 80vw;
+    height: auto;
+    padding: 1rem;
+  }
+  .contact-card .fa-solid {
+    font-size: 4vw;
+  }
+  .contact-form {
+    padding-right: 2vw;
+  }
+  .contact-form form {
+    padding: 2vw 4vw;
+    gap: 2rem;
+  }
+  .form {
+    flex-direction: column;
+    gap: 2vw;
+  }
+  .form-input input {
+    width: 90vw;
+    font-size: 3vw;
+    margin: auto;
+  }
+  section textarea {
+    width: 90vw;
+    font-size: 3vw;
+
+  }
+  .contact-container .btn {
+    width: 90%;
+    font-size: 3vw;
+    margin: auto;
+  }
+}
+/* ==================================== responsive css ofr the small device ========================================== */
+@media (max-width: 480px) {
+  .contact-container{
+    display: flex;
+    flex-direction: column;
+    gap:5vw;
+  }
+  .contact-card {
+    width: 90vw;
+  }
+  .contact-card .fa-solid {
+    font-size: 6vw;
+  }
+  .form-input input {
+    width: 90vw;
+  }
+  section textarea {
+    width: 90vw;
+  }
 }

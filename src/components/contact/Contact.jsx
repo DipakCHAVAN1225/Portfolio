@@ -1,18 +1,19 @@
 import { useState } from "react";
 import "./contact.css";
 function Contact() {
+  // ============================ useState for handling user data ======================= 
   const [formData,setFormData]=useState({
     name:"",
     email:"",
     subject:"",
     message:"",
   })
-   
+  //  ================== function for use data input =============================
   const handleChange=(e)=>{
     const {name,value}=e.target
     setFormData({...formData,[name]:value})
   }
-   
+  //  ======================== function for submit of form ==============================
 const handleSubmit=(e)=>{
   e.preventDefault()
   console.log(formData)
@@ -20,8 +21,10 @@ const handleSubmit=(e)=>{
 }
 
   return (
+    // ===================  code for contact form =========================
     <section className="contact-container">
       <h2>CONTACT</h2>
+      {/* ================== basic info cards ========================================= */}
       <div className="contact-detail">
         <section className="contact-card">
         <i className="fa-solid fa-phone"></i>
@@ -39,6 +42,7 @@ const handleSubmit=(e)=>{
         <p>Jalgaon,Maharashtra</p>
         </section>
       </div>
+      {/* ==================== main login form code ======================================== */}
       <div className="contact-form">
        <form onSubmit={handleSubmit}>
          <div className="form">
