@@ -22,7 +22,7 @@ const handleSubmit=(e)=>{
 
   return (
     // ===================  code for contact form =========================
-    <section className="contact-container">
+    <section className="contact-container" id="contact">
       <h2>CONTACT</h2>
       {/* ================== basic info cards ========================================= */}
       <div className="contact-detail">

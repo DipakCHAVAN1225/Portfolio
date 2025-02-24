@@ -12,12 +12,23 @@
 
 /* ============================= css for navbar section ============================= */
 .home-nav{
+  background-color: #EFF0F4;
+  position:fixed;
+  top: 0;
+  z-index: 999;
   width:100%;
   height:11%;
   padding: 1vw 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.hero{
+  position:relative;
+  top:14%;
+}
+.nav-icon{
+  display:none;
 }
 .logo-img{
   height:4vw;
@@ -34,24 +45,28 @@
   object-fit: cover;
 }
 .home-menu{
-  height:2vw;
-  width:2vw;
-  display:flex;
-  align-items: center;
-  justify-content: center;
   padding:1.5vw;
   -o-border-radius: 50%;
   font-size:1.6vw;
-  background-color: rgb(243, 241, 241);
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  box-shadow:5px 5px 5px rgb(191, 190, 190);
-  cursor: pointer;
+
+
 }
-.home-menu:hover{
-  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+.home-menu ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:5rem;
+}
+.home-menu li{
+  cursor: pointer;
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+}
+.home-menu li:hover{
+border-bottom: 2px solid #2CB0ED;
   
 }
 /* ===================== css for main home page ==============================*/
@@ -197,6 +212,22 @@
   }
    /* ============================== css for making responsive for laptop device ========================== */
 @media (max-width: 1200px) {
+  .home-menu{
+    padding:1.5vw;
+    -o-border-radius: 50%;
+    font-size:1.6vw;
+  
+  
+  }
+  .home-menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:3rem;
+  }
+  .nav-icon{
+    display: none;
+  }
   .home-text h1 {
     font-size:4vw;
     
@@ -216,11 +247,7 @@
     height:5vw;
     width:5vw;
   }
-  .home-menu {
-    height:4vw;
-    width:4vw;
-    font-size:2vw;
-  }
+  
   .hero-img {
     width:90%;
     height: auto;
@@ -229,6 +256,31 @@
 }
 /* ========================= css for making responsive for device tablet ========================*/
 @media (max-width: 768px) {
+  .home-menu{
+    padding:1.5vw;
+    -o-border-radius: 50%;
+    font-size:1.6vw;
+  
+  
+  }
+  .home-menu ul{
+    background-color: red;
+    display: none;
+  }
+  .nav-icon{
+    font-size:1.5rem;
+    padding-left:0.8rem;
+    padding-top: 0.4rem;
+    width:3rem;
+    height:3rem;
+    display: inline-block;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    box-shadow:5px 5px 5px rgb(191, 190, 190);
+}
+.nav-icon:hover{
+  box-shadow:5px 5px 5px rgb(191, 190, 190)inset;
+}
   .home-text h1 {
     font-size:7vw;
   }
@@ -244,13 +296,8 @@
     font-size: 3vw;
   }
   .logo-img {
-    height:10vw;
-    width:10vw;
-  }
-  .home-menu {
     height:8vw;
     width:8vw;
-    font-size:4vw;
   }
   .hero {
     gap: 12vw;
@@ -269,6 +316,41 @@
   
 }
 @media (max-width: 480px) {
+  .main-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+  }
+     .home-menu{
+    padding:1.5vw;
+    -o-border-radius: 50%;
+    font-size:1.6vw;
+  
+  
+  }
+  .home-menu ul{
+    background-color: red;
+    display: none;
+  }
+  .home-nav{
+    padding-right: 3rem;
+  }
+  .nav-icon{
+    font-size:1.5rem;
+    padding-left:0.8rem;
+    padding-top: 0.4rem;
+    width:3rem;
+    height:3rem;
+    display: inline-block;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    box-shadow:5px 5px 5px rgb(191, 190, 190);
+}
+.nav-icon:hover{
+  box-shadow:5px 5px 5px rgb(191, 190, 190)inset;
+}
   .home-text h1 {
     font-size: 8vw;
   }
@@ -281,13 +363,9 @@
     font-size: 3vw;
   }
   .logo-img {
-    height: 10vw;
-    width: 10vw;
-  }
-  .home-menu {
-    height: 8vw;
-    width: 8vw;
-    font-size: 4vw;
+    margin-top:1.5rem;
+    height:3rem;
+    width: 3rem;
   }
   .hero {
     gap: 10vw;

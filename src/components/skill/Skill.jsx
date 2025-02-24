@@ -14,7 +14,7 @@ const Skill=()=> {
   return (
     // ================== code for the switch button ==========================================
 
-    <div className=" Skill">
+    <div className=" Skill" id="skill">
       <div className="flex space-x-4 justify-center">
         <button
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"

@@ -3,7 +3,7 @@ import Img from "../home/logo.jpg"
 function About() {
   return (
     // ============== this is an about section ========================================
-    <section className="about">
+    <section className="about" id="about">
       {/* =============== this is an image side of it here image and connection =========================== */}
       <div className="about-left-side">
          <div className="about-img">

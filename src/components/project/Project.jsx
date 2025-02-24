@@ -2,7 +2,7 @@ import "./project.css"
 function Project() {
   return (
     // ================== this is project section ============================================
-    <section className="project-container">
+    <section className="project-container" id="project">
       <h1>My Projects</h1>
       <div className="project">
       

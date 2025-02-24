@@ -1,15 +1,30 @@
 import Img from "./logo.jpg"
 import "./home.css"
+
 function Home() {
+
   return (
-    <div className="main-home">
+    <div className="main-home" id="home">
       {/*================== Home page Navbar ========================== */}
       <nav className="home-nav">
          <div className="logo-img">
               <img src={Img}/>
          </div>
          <div className="home-menu">
-         <i className="fa-solid fa-bars"></i>
+            <ul>
+              {/* <li>Home</li> */}
+              <a href="#home"> <li>Home</li></a>
+               <a href="#about"> <li>About</li></a>
+               <a href="#skill"> <li>Services</li></a>
+               <a href="#project"> <li>project</li></a>
+               <a href="#contact"> <li>Contact</li></a>
+              {/* <li>Services</li>
+              <li>Projects</li>
+              <li>Contact</li> */}
+            </ul>
+             <p className="nav-icon">
+                <i className="fa-solid fa-bars"></i>
+             </p>
          </div>
       </nav>
       {/*==================== home page text and hero image ======================*/}
