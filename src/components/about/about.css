@@ -39,7 +39,6 @@
   height:3vw;
   border-radius: 50%;
   list-style: none;
-  background-color: rgb(237, 235, 235);
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -88,7 +87,6 @@
   margin:0px 2vw ;
   color: #2CB0ED;
   font-weight: 500;
-  background-color: #f0eded;
   -webkit-border-radius:40px;
   -moz-border-radius:40px;
   -ms-border-radius:40px;

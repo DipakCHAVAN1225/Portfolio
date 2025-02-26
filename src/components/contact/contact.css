@@ -21,7 +21,7 @@
   gap:4rem;
 }
 .contact-card{
-  background-color: #EFF0F4;
+
   width: 22vw;
   height:9rem;
   box-shadow:5px 5px 5px 4px rgb(191, 190, 190);
@@ -122,7 +122,6 @@ section textarea:hover{
   color:#2CB0ED;
   font-weight:500;
   -o-border-radius:40px;
-  background-color: #EFF0F4;
   box-shadow:5px 5px 5px 4px rgb(191, 190, 190);
   -webkit-border-radius:40px;
   -moz-border-radius:40px;

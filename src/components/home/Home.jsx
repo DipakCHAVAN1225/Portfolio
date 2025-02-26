@@ -1,8 +1,43 @@
 import Img from "./logo.jpg"
 import "./home.css"
+import "../../App.css"
+import { useState,useEffect} from "react"
 
 function Home() {
+  // ============ for opening menu or not =================
+  const [isMenuOpen,setIsMenuOpen]=useState(false)
+  // ================ for theme ===========================
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [isDark,setIsDark]=useState(false)
 
+  // ========================== for handling menu ============================
+  const HandleShowMenu=()=>{
+        setIsMenuOpen(!isMenuOpen)
+  }
+  const handleCloseMenu=()=>{
+    setIsMenuOpen(false)
+  }
+  // ====================== for handling menu ==============================
+  const handleTheme=()=>{
+    setTheme(!theme)
+    setIsDark(!isDark)
+  }
+  // ================== logic for showing light and dark theme =================================
+  useEffect(() => {
+    
+    // Apply background color based on theme
+    if (isDark) {
+      document.body.style.backgroundColor = "#EFF0F4"; // Light Theme
+      document.body.style.color = "#000"; // Black text
+    } else {
+      document.body.style.backgroundColor = "#374151"; // Dark Theme
+      document.body.style.color = "#F8FAFC"; // White text
+    
+    }
+
+    // Save theme in localStorage
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   return (
     <div className="main-home" id="home">
       {/*================== Home page Navbar ========================== */}
@@ -12,27 +47,45 @@ function Home() {
          </div>
          <div className="home-menu">
             <ul>
-              {/* <li>Home</li> */}
               <a href="#home"> <li>Home</li></a>
                <a href="#about"> <li>About</li></a>
                <a href="#skill"> <li>Services</li></a>
                <a href="#project"> <li>project</li></a>
                <a href="#contact"> <li>Contact</li></a>
-              {/* <li>Services</li>
-              <li>Projects</li>
-              <li>Contact</li> */}
             </ul>
-             <p className="nav-icon">
-                <i className="fa-solid fa-bars"></i>
+             <p className="nav-icon" onClick={HandleShowMenu}>
+              {isMenuOpen?<i className="fa-solid fa-xmark"></i>:<i className="fa-solid fa-bars"></i>}  
              </p>
+              
          </div>
+         {/* =============== dark light theme ============================== */}
+         <div 
+           className="theme" 
+            onClick={handleTheme}>
+              <p 
+              className={`transition-transform duration-700 
+                ${isDark? "translate-x-0  ": "translate-x-12 light"}`} >
+                  {isDark?<i className="fa-solid fa-sun"></i>:<i className="fa-solid fa-moon"></i>}</p>
+         </div>
+         {/* =============== hidden menu for mobile and medium device========================= */}
+         <div
+            className={`hidden-menu absolute right-0 top-20 w-full h-96  text-black p-4 transition-transform duration-700 
+              ${ isMenuOpen ? "translate-y-0" : "translate-x-full"}`}  >
+        <ul>
+               <a onClick={handleCloseMenu} href="#home"> <li>Home</li></a>
+               <a onClick={handleCloseMenu} href="#about"> <li>About</li></a>
+               <a onClick={handleCloseMenu} href="#skill"> <li>Services</li></a>
+               <a onClick={handleCloseMenu} href="#project"> <li>project</li></a>
+               <a onClick={handleCloseMenu} href="#contact"> <li>Contact</li></a>
+        </ul>
+          </div>
       </nav>
       {/*==================== home page text and hero image ======================*/}
        <section className="hero flex items-center justify-center">
         {/*===================== text section ===========================*/}
          <section className="home-text">
             <p>Hello</p>
-            <h1>I am <span></span></h1>
+            <h1>I am <span  className={`${isDark? "after:bg-[#EFF0F4]":"after:bg-[#374151]"}`}></span></h1>
             <p>Let&apos;s Explore My Journey</p>
             <button>More About Me</button>
          </section>

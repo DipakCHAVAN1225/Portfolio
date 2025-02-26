@@ -6,13 +6,33 @@
 .main-home{
   width: 100vw;
   height: 100vh;
-  background-color:#EFF0F4;
 
 }
 
 /* ============================= css for navbar section ============================= */
+.hidden-menu{
+  background-color:#374151;
+  color: #F8FAFC;
+}
+.hidden-menu ul li{
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  font-size:1.3rem;
+  font-family: cursive;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  cursor: pointer;
+}
+.hidden-menu ul li:hover{
+  color: #2CB0ED;
+  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+}
 .home-nav{
-  background-color: #EFF0F4;
   position:fixed;
   top: 0;
   z-index: 999;
@@ -22,6 +42,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.theme{
+  width:80px;
+  font-size: 1.3rem;
+  padding:2px 5px;
+  border-radius: 50px;
+  height:35px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  box-shadow: 3px 3px 5px rgb(191, 190, 190);
+}
+.theme:hover{
+  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
 }
 .hero{
   position:relative;
@@ -104,7 +139,6 @@ border-bottom: 2px solid #2CB0ED;
   margin-top: 2vw;
   color: #2CB0ED;
   font-weight: 500;
-  background-color: #f0eded;
   -webkit-border-radius:40px;
   -moz-border-radius:40px;
   -ms-border-radius:40px;
@@ -138,7 +172,7 @@ border-bottom: 2px solid #2CB0ED;
   position: absolute;
   width:calc( 100% + 8px);
   height:110%;
-  background-color:#EFF0F4;
+  /* background-color:#EFF0F4; */
   right: -8px;
   border-left: 2px solid #737374;
   -webkit-animation: curser 0.8s infinite,typing 20s steps(14) infinite;
@@ -185,6 +219,10 @@ border-bottom: 2px solid #2CB0ED;
       font-size:10vw;
       
     }
+    .theme{
+      position: fixed;
+      right:5%;
+    }
     .home-text p{
       font-size:10vw;
     }
@@ -213,17 +251,25 @@ border-bottom: 2px solid #2CB0ED;
    /* ============================== css for making responsive for laptop device ========================== */
 @media (max-width: 1200px) {
   .home-menu{
+    right:8%;
+    position: fixed;
     padding:1.5vw;
     -o-border-radius: 50%;
     font-size:1.6vw;
   
   
   }
+  .theme{
+    margin-top:7rem;
+  }
   .home-menu ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap:3rem;
+  }
+  .hidden-menu{
+    display: none;
   }
   .nav-icon{
     display: none;
@@ -266,6 +312,9 @@ border-bottom: 2px solid #2CB0ED;
   .home-menu ul{
     background-color: red;
     display: none;
+  }
+  .hidden-menu{
+    display: inline-block;
   }
   .nav-icon{
     font-size:1.5rem;
@@ -315,6 +364,7 @@ border-bottom: 2px solid #2CB0ED;
   }
   
 }
+/* ========================== responsive for mobile device =========================== */
 @media (max-width: 480px) {
   .main-home{
     display: flex;
