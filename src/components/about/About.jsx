@@ -1,6 +1,9 @@
 import "./about.css"
 import Img from "../home/logo.jpg"
 function About() {
+  const openResume = () => {
+    window.open("/Dipak2.pdf", "_blank");
+  };
   return (
     // ============== this is an about section ========================================
     <section className="about" id="about">
@@ -22,14 +25,15 @@ function About() {
       <div className="about-right-side">
         <h1>About me</h1>
 
-        <p>Hi, I am Shubhangini Patil As a dedicated frontend developer, I bring a blend of technical expertise and a passion for creating dynamic and user-friendly web experiences. With a solid foundation in HTML, CSS, Bootstrap, JavaScript, and React, I am adept at turning design concepts into functional, visually appealing interfaces. My background in C, C++, Python, and SQL has provided me with a strong problem-solving mindset and the ability to integrate backend functionality when needed.
+        <p >Hi, <span>DIPAK CHAVAN</span> As a dedicated frontend developer, I bring a blend of technical expertise and a passion for creating dynamic and user-friendly web experiences. With a solid foundation in HTML, CSS, JavaScript, and React, I am adept at turning design concepts into functional, visually appealing interfaces.
+        {/* /* My background in C, C++, Python, and SQL has provided me with a strong problem-solving mindset and the ability to integrate backend functionality when needed.*/ }
 
         </p>
 
         <p>I am committed to continuous learning and improvement, always staying up-to-date with the latest web technologies and best practices. My goal is to contribute effectively to a team by leveraging my skills to build innovative and impactful web solutions. I am open to opportunities that will allow me to grow professionally and collaborate on exciting projects.</p>
         <strong>
-        <button>Download CV</button>
-        <button>Hire Me</button>
+        <button onClick={openResume}>Download CV</button>
+        <a href="#contact" ><button>Hire Me</button></a>
         </strong>
 
       </div>

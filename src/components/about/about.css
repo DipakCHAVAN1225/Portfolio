@@ -76,10 +76,12 @@
 }
 .about-right-side p{
   width:70%;
-  color:rgb(82, 80, 80);
   font-size:1.2vw;
   font-family: cursive;
   margin:1vw 0px;
+}
+.about-right-side p span{
+  color: #2CB0ED;
 }
 .about-right-side button{
   width:13vw;

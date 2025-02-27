@@ -310,7 +310,6 @@ border-bottom: 2px solid #2CB0ED;
   
   }
   .home-menu ul{
-    background-color: red;
     display: none;
   }
   .hidden-menu{
@@ -323,7 +322,7 @@ border-bottom: 2px solid #2CB0ED;
     width:3rem;
     height:3rem;
     display: inline-block;
-    background-color: #f1f1f1;
+  
     border-radius: 50%;
     box-shadow:5px 5px 5px rgb(191, 190, 190);
 }
