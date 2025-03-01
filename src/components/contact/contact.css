@@ -131,6 +131,29 @@ section textarea:hover{
  .btn:hover{
   box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
 } 
+.animate-slideIn {
+  animation: slideIn 9s ease-in-out;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+
 /* ================================ responsive css for medium device =========================================== */
 @media (max-width: 768px) {
     .contact-container{

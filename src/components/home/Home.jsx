@@ -36,7 +36,7 @@ function Home() {
       document.body.style.backgroundColor = "#EFF0F4"; // Light Theme
       document.body.style.color = "#000"; // Black text
     } else {
-      document.body.style.backgroundColor = "#374151"; // Dark Theme
+      document.body.style.backgroundColor = "#2D2D2D"; // Dark Theme
       document.body.style.color = "#F8FAFC"; // White text;
     }
   }, [theme]); // Run effect whenever theme changes
@@ -86,7 +86,7 @@ function Home() {
         <section className="home-text">
           <p>Hello</p>
           <h1>
-            I am <span className={`${isDark ?  "after:bg-[#374151]" :  "after:bg-[#EFF0F4]"}`}></span>
+            I am <span className={`${isDark ?  "after:bg-[#2D2D2D]" :  "after:bg-[#EFF0F4]"}`}></span>
           </h1>
           <p>Let&apos;s Explore My Journey</p>
           <button>More About Me</button>
