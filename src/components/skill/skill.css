@@ -43,7 +43,6 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   width: 200px;
-  background-color: #ffffff;
   height: 150px;
   -o-border-radius: 10px;
   display: flex;
@@ -80,17 +79,18 @@
 
 /* =================================== Education  section styling here =====================================  */
 .edu-container {
-  margin: 5vw 10vw;
+  margin-top: 3rem;
+  margin:3vw 10vw 0vw 10vw;
   border-right: 1px solid #d1cfcf;
   width: 42vw;
   display: flex;
   justify-content: center;
   position: relative;
+
 }
 .edu-card {
   height: 33vh;
   width: 40vw;
-  background-color: #eef0f1;
   -webkit-box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 9px 9px 13px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
@@ -128,6 +128,48 @@
   -ms-border-radius: 60px;
   border-radius: 60px;
 }
+.edu-container2 {
+  margin:0px 10vw;
+  border-left: 1px solid #d1cfcf;
+  width: 42vw;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left:41.8%;
+}
+.edu-card2 {
+  height: 33vh;
+  width:40vw;
+  -webkit-box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 9px 13px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  font-family: cursive;
+}
+.edu-icon2 {
+  position: absolute;
+  left:-4%;
+  top: 9%;
+  background-color: #eff0f4;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -o-border-radius: 60px;
+  font-size: 1.1vw;
+  border: 1px solid #c8c8c9;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  border-radius: 60px;
+}
+.edu-line2 {
+  height: 2px;
+  width: 5vw;
+  background-color: #c8c8c9;
+  margin:2.7rem 0px;
+
+}
 /* ======================================= css to make it responsive for the laptop ==============================  */
 @media (max-width: 1200px) {
   .Skill{
@@ -136,7 +178,6 @@
   }
   .Skill-card {
     margin: auto;
-    border: 2px solid red;
     justify-content: center;
     width: 90vw;
   }
@@ -145,10 +186,17 @@
     height: 140px;
   }
   .edu-container {
-    width: 90vw;
+    width:45vw;
     margin: 5vw 5vw;
   }
   .edu-card {
+    width: 80vw;
+  }
+  .edu-container2 {
+    width:45vw;
+    margin: 5vw 5vw;
+  }
+  .edu-card2 {
     width: 80vw;
   }
 }
@@ -170,13 +218,25 @@
     height: 130px;
   }
   .edu-container {
-    width: 80vw;
-    margin: auto;
+    width:50vw;
+    margin:0 2rem;
   }
   .edu-card {
     width: 90vw;
   }
   .edu-icon {
+    font-size: 2vw;
+    right: -6%;
+    top: 12%;
+  }
+  .edu-container2 {
+    width:50vw;
+    margin:5px 2rem;
+  }
+  .edu-card2 {
+    width: 90vw;
+  }
+  .edu-icon2 {
     font-size: 2vw;
     right: -6%;
     top: 12%;
@@ -209,6 +269,19 @@
     font-size: 5vw;
   }
   .edu-icon {
+    right: -8%;
+    top: 15%;
+  }
+  .edu-container2 {
+    width: 80vw;
+    margin-left: -7rem;
+    margin-top: 2rem;
+  }
+  .edu-card2 {
+    width: 95vw;
+    height: auto;
+  }
+  .edu-icon2 {
     right: -8%;
     top: 15%;
   }

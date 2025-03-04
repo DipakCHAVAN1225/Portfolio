@@ -1,5 +1,4 @@
 import "./about.css"
-import Img from "../home/logo.jpg"
 function About() {
   const openResume = () => {
     window.open("/Dipak2.pdf", "_blank");
@@ -10,15 +9,15 @@ function About() {
       {/* =============== this is an image side of it here image and connection =========================== */}
       <div className="about-left-side">
          <div className="about-img">
-         <img src={Img}></img>
+         <img src="/hero.jpg"></img>
          </div>
          <div className="connect-me">
-          <li><i className="fa-brands fa-facebook"></i></li>
-          <li><i className="fa-brands fa-linkedin"></i></li>
-          <li><i className="fa-brands fa-github"></i></li>
-          <li><i className="fa-brands fa-instagram"></i></li>
-          <li><i className="fa-brands fa-twitter"></i></li>
-          <li><i className="fa-brands fa-dribbble"></i></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100054613264309"><i className="fa-brands fa-facebook"></i></a></li>
+          <li> <a href="https://www.linkedin.com/in/dipak-chavan-19317024b/"><i className="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/DipakCHAVAN1225"><i className="fa-brands fa-github"></i></a></li>
+          <li><a href=""><i className="fa-brands fa-instagram"></i></a></li>
+          <li><a href=""><i className="fa-brands fa-twitter"></i></a></li>
+          <li><a href="https://dribbble.com/Dipu9322"><i className="fa-brands fa-dribbble"></i></a></li>
        </div> 
       </div>
       {/* ============== this section for paragraph and header=============================== */}

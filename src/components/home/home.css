@@ -42,6 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 .theme{
   width:80px;
@@ -77,7 +78,7 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  object-fit: cover;
+
 }
 .home-menu{
   padding:1.5vw;

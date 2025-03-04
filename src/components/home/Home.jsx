@@ -45,7 +45,7 @@ function Home() {
     <div className="main-home" id="home">
       {/*================== Home page Navbar ========================== */}
     
-     <nav className="home-nav">
+     <nav className={`home-nav ${isDark?"bg-[#2D2D2D]":"bg-[#f1f1f1]"} `}>
         <div className="logo-img">
           <img src={Img} />
         </div>
@@ -93,7 +93,7 @@ function Home() {
         </section>
         {/* =========================== Image Section =============================*/}
         <section className="home-image flex items-center justify-center">
-          <img src={Img} className="hero-img"></img>
+          <img src="/hero.jpg" className="hero-img"></img>
         </section>
       </section>
     </div>

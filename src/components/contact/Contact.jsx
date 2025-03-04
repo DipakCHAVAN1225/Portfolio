@@ -56,40 +56,6 @@ const handleSubmit=(e)=>{
  console.log(formData)
 }
  
-// const createSheet=()=>{
-//   fetch('https://sheetdb.io/api/v1/g2hk8hj79ymzx', {
-//     method: 'POST',
-//     headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//         data: [
-//             {
-//                 'name': formData.name,
-//                 'email': formData.email,
-//                 'subject': formData.subject,
-//                 'message':formData.message
-//             }
-//         ]
-//     })
-// })
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
-
-// }
-
-// const handleSubmit2 = (e) => {
-//   e.preventDefault();
-
-//   // Show the popup
-//   setShowPopup(true);
-
-//   // Hide the popup after 5 seconds
-//   setTimeout(() => {
-//     setShowPopup(false);
-//   }, 5000);
-// };
   return (
     // ===================  code for contact form =========================
     <section className="contact-container" id="contact">
