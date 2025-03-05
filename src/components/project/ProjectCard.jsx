@@ -1,8 +1,8 @@
 import "./project.css"
 
-function ProjectCard({proName,proUrl,proDetail}) {
+function ProjectCard({proName,proUrl,proDetail,link}) {
   const handleClick=()=>{
-    window.open("https://dipakchavan1225.github.io/cynthia-ugwu-clone/","_blank")
+    window.open(link,"_blank")
   }
   return (
         <div className="project-card">
