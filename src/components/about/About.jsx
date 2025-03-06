@@ -1,15 +1,50 @@
 import "./about.css"
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
 function About() {
   const openResume = () => {
     window.open("/Dipak2.pdf", "_blank");
   };
+  
+  // ======================= code for gsap animation =========================================
+  const containerRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".about-img", {
+        opacity:0,
+        x:-200,
+        duration: 1,
+        scrollTrigger: {
+            trigger:".about-img",
+            start: "top 80%", 
+            end: "top 30%", 
+            scrub: true
+        }  
+    })
+
+    gsap.from(".about-right-side", {
+      opacity:0,
+      x:200,
+  
+      scrollTrigger: {
+          trigger:".about-right-side",
+          start: "top 80%", 
+          end: "top 30%", 
+          scrub: true, 
+      }
+  });
+}, { scope: containerRef });
   return (
     // ============== this is an about section ========================================
-    <section className="about" id="about">
+    <section ref={containerRef}  className="about" id="about">
       {/* =============== this is an image side of it here image and connection =========================== */}
       <div className="about-left-side">
          <div className="about-img">
-         <img src="/hero.jpg"></img>
+         <img  src="/hero.jpg"></img>
          </div>
          <div className="connect-me">
           <li><a href="https://www.facebook.com/profile.php?id=100054613264309"><i className="fa-brands fa-facebook"></i></a></li>
@@ -25,8 +60,6 @@ function About() {
         <h1>About me</h1>
 
         <p >Hi, <span>DIPAK CHAVAN</span> As a dedicated frontend developer, I bring a blend of technical expertise and a passion for creating dynamic and user-friendly web experiences. With a solid foundation in HTML, CSS, JavaScript, and React, I am adept at turning design concepts into functional, visually appealing interfaces.
-        {/* /* My background in C, C++, Python, and SQL has provided me with a strong problem-solving mindset and the ability to integrate backend functionality when needed.*/ }
-
         </p>
 
         <p>I am committed to continuous learning and improvement, always staying up-to-date with the latest web technologies and best practices. My goal is to contribute effectively to a team by leveraging my skills to build innovative and impactful web solutions. I am open to opportunities that will allow me to grow professionally and collaborate on exciting projects.</p>

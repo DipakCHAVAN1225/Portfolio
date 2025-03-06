@@ -1,6 +1,7 @@
 import ProjectCard from "./ProjectCard"
-import "./project.css"
+import "./project.css";
 function Project() {
+  
   return (
     // ================== this is project section ============================================
     <section className="project-container" id="project">

@@ -1,5 +1,9 @@
 import { useState } from "react";
 import "./contact.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 function Contact() {
   // ============================ useState for handling user data ======================= 
   const [formData,setFormData]=useState({
@@ -55,10 +59,70 @@ const handleSubmit=(e)=>{
 
  console.log(formData)
 }
- 
+
+// ================= code for make gsap animation ====================================
+const containerRef = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
+
+useGSAP(() => {
+  gsap.from(".contact-detail", {
+    opacity:0,
+    y:100,
+
+    scrollTrigger: {
+        trigger:".contact-detail",
+        start: "top 98%", 
+        end: "top 30%",
+        scrub: true,
+        
+        
+    }
+});
+
+gsap.from(".form input", {
+  opacity:0,
+  x:-400,
+
+  scrollTrigger: {
+      trigger:".form input",
+      start: "top 98%", 
+      end: "top 30%",
+      scrub: true,
+      
+      
+  }
+});
+gsap.from(".form textarea", {
+  opacity:0,
+  x:400,
+
+  scrollTrigger: {
+      trigger:".form textarea",
+      start: "top 98%", 
+      end: "top 30%",
+      scrub: true,
+      
+      
+  }
+});
+gsap.from("h2", {
+  opacity:0,
+  x:400,
+
+  scrollTrigger: {
+      trigger:"h2",
+      start: "top 98%", 
+      end: "top 30%",
+      scrub: true,
+      
+      
+  }
+});
+
+}, { scope: containerRef });
   return (
     // ===================  code for contact form =========================
-    <section className="contact-container" id="contact">
+    <section ref={containerRef} className="contact-container" id="contact">
       <h2>CONTACT</h2>
       {/* ================== basic info cards ========================================= */}
       <div className="contact-detail">

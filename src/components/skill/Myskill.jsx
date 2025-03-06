@@ -1,8 +1,32 @@
 import "./skill.css";
+
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
 function Myskill() {
+  // ====================== gsap animation section =======================================
+  const containerRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".card", {
+      opacity:0,
+      y:200,
+  
+      scrollTrigger: {
+          trigger:".card",
+          start: "top 80%", 
+          end: "top 30%",
+          scrub: true,
+      }
+  });
+}, { scope: containerRef });
   // ============================ is is a skill section =============================
   return (
-    <section className="Skill-card">
+    <section ref={containerRef} className="Skill-card">
       <div className="card">
         <div className="card-img"><img src="\HTML5_logo_and_wordmark.svg"></img></div>
         <p>HTML</p>

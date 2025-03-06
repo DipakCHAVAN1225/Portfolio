@@ -1,8 +1,44 @@
-import "./skill.css"
+import "./skill.css";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
 function Education(){
+// ===================================== gsap animation section ==============================
+  const containerRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    gsap.from(".edu-container", {
+      opacity:0,
+      x:-300,
+  
+      scrollTrigger: {
+          trigger:".edu-container",
+          start: "top 80%", 
+          end: "top 30%",
+          scrub: true,
+        
+      }
+      
+  });
+  gsap.from(".edu-container2", {
+    opacity:0,
+    x:300,
+
+    scrollTrigger: {
+        trigger:".edu-container2",
+        start: "top 80%", 
+        end: "top 30%",
+        scrub: true,
+        
+    }
+    })
+  }, { scope: containerRef });
   return (
     // =========================== it is a education section in skill =====================================
-    <>
+    <div ref={containerRef}>
     <section className=" edu-container bg-red-404">
         <div className="edu-card bg-gray-200 p-8 text-end">
         <p className="text-cyan-500">2022 – 2025</p>
@@ -24,7 +60,7 @@ function Education(){
         </div>
       
     </section>
-    </>
+    </div>
   )
 }
 
