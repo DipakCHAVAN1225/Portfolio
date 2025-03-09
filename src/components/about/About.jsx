@@ -53,7 +53,7 @@ function About() {
           <li><a href=""><i className="fa-brands fa-instagram"></i></a></li>
           <li><a href=""><i className="fa-brands fa-twitter"></i></a></li>
           <li><a href="https://dribbble.com/Dipu9322"><i className="fa-brands fa-dribbble"></i></a></li>
-       </div> 
+         </div> 
       </div>
       {/* ============== this section for paragraph and header=============================== */}
       <div className="about-right-side">

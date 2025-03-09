@@ -6,8 +6,7 @@ import Skill from "./components/skill/Skill";
 import Project from "./components/project/Project";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
-import  { useState, useEffect } from 'react';
-import './MouseDot.css'; // Ensure you have a corresponding CSS file
+import  { useState, useEffect } from 'react'
 function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 

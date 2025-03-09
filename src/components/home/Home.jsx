@@ -67,7 +67,7 @@ function Home() {
         y: 200,
         duration: 1,
         opacity: 0,
-        delay:0.5,
+        delay: 0.5,
       });
   });
 
@@ -148,7 +148,17 @@ function Home() {
         </nav>
 
         {/*==================== Home Page Text and Hero Image ======================*/}
-        <section className="hero flex items-center justify-center">
+        <section className="hero  flex items-center justify-center">
+        <div className="container">
+        <div className="grid">
+        
+            <div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div>
+            <div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div>
+            <div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div>
+            <div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div>
+            <div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div><div className="square"></div>
+        </div>
+    </div>
           {/*===================== Text Section ===========================*/}
           <section className="home-text">
             <p>Hello</p>
@@ -167,8 +177,9 @@ function Home() {
           </section>
           {/* =========================== Image Section =============================*/}
           <section className="home-image flex items-center justify-center">
-            <img src="/hero.jpg" className="hero-img"></img>
+          <div className="hero-img">  <img src="/hero.jpg"></img></div>
           </section>
+          <div className="design"></div>
         </section>
       </div>
     </main>

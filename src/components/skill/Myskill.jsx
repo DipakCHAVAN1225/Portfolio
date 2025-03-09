@@ -28,28 +28,36 @@ function Myskill() {
   return (
     <section ref={containerRef} className="Skill-card">
       <div className="card">
-        <div className="card-img"><img src="\HTML5_logo_and_wordmark.svg"></img></div>
+        <div className="card-img"><img src="\HTML5.png"></img></div>
         <p>HTML</p>
       </div>
       <div className="card">
-      <di className="card-img"><img src="\CSS3_logo_and_wordmark.svg"></img></di>
+      <di className="card-img"><img src="\CSS3.png"></img></di>
       <p>CSS</p>
       </div>
       <div className="card">
-      <div className="card-img"><img src="\JavaScript-logo.png"></img></div>
+      <div className="card-img"><img src="\JavaScript.png"></img></div>
       <p>JavaScript</p>
       </div>
       <div className="card">
-      <div className="card-img"><img src="\React-icon.svg"></img></div>
+      <div className="card-img"><img src="\Tailwind CSS.png"></img></div>
+      <p>Tailwind</p>
+      </div>
+      <div className="card">
+      <div className="card-img"><img src="\React.png"></img></div>
       <p>React</p>
       </div>
       <div className="card">
-      <div className="card-img"><img src="\Octicons-mark-github.svg"></img></div>
+      <div className="card-img"><img src="\GitHub.png"></img></div>
       <p>Github</p>
       </div>
       <div className="card">
-      <div className="card-img"><img src="\Figma-logo.svg"></img></div>
+      <div className="card-img"><img src="\Figma.png"></img></div>
       <p>Figma</p>
+      </div>
+      <div className="card">
+      <div className="card-img"><img src="\pngwing.com.png"></img></div>
+      <p>GSAP</p>
       </div>
     </section>
   );
