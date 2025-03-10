@@ -1,0 +1,518 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main-home {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* ============================= css for navbar section ============================= */
+.hidden-menu {
+  background-color: #374151;
+  color: #f8fafc;
+}
+.hidden-menu ul li {
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-family: cursive;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  cursor: pointer;
+}
+.hidden-menu ul li:hover {
+  color: #2cb0ed;
+  box-shadow: 3px 3px 5px rgb(191, 190, 190) inset;
+}
+.home-nav {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 11%;
+  padding: 1vw 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.theme {
+  width: 80px;
+  font-size: 1.3rem;
+  padding: 2px 5px;
+  border-radius: 50px;
+  height: 35px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  box-shadow: 3px 3px 5px rgb(191, 190, 190);
+}
+.theme:hover {
+  box-shadow: 3px 3px 5px rgb(191, 190, 190) inset;
+}
+.hero {
+  position: relative;
+  top: 14%;
+}
+.nav-icon {
+  display: none;
+}
+.logo-img {
+  height: 4vw;
+  width: 4vw;
+}
+.logo-img img {
+  width: 100%;
+  height: 100%;
+  -o-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+}
+.home-menu {
+  padding: 1.5vw;
+  -o-border-radius: 50%;
+  font-size: 1.6vw;
+}
+.home-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+.home-menu li {
+  cursor: pointer;
+  transition: all 0.1s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+}
+.home-menu li:hover {
+  border-bottom: 2px solid #2cb0ed;
+}
+/* ===================== css for main home page ==============================*/
+.hero {
+  width: 90vw;
+  height: 80vh;
+  margin: auto;
+}
+.home-text,
+.home-image {
+  width: 50%;
+  height: 100%;
+}
+.home-text {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+.home-text p {
+  color: #5a5a59;
+  font-size: 1.5vw;
+  margin: 0.2rem 0px;
+}
+.home-text h1 {
+  font-size: 4vw;
+  font-weight: bolder;
+}
+.home-text span {
+  position: relative;
+}
+.home-text button {
+  width: 13vw;
+  height: 3vw;
+  margin-top: 2vw;
+  color: #2cb0ed;
+  font-weight: 500;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 5px rgb(191, 190, 190);
+  cursor: pointer;
+}
+.home-text button:hover {
+  box-shadow: 3px 3px 5px rgb(191, 190, 190) inset;
+}
+.hero-img{
+  width: 57%;
+  height: 70%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  -webkit-border-radius:50%;
+  -moz-border-radius:50%;
+  -ms-border-radius:50%;
+  -o-border-radius:50%;
+  border-radius:50%;
+}
+.hero-img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+
+@keyframes border-animation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+/* ======================= css for  typewriter effect ================================== */
+.home-text span::before {
+  content: "Dipak Chavan";
+  color: #2cb0ed;
+  -webkit-animation: words 20s infinite;
+  animation: words 20s infinite;
+}
+.home-text span::after {
+  content: " ";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 110%;
+  /* background-color:#EFF0F4; */
+  right: -8px;
+  border-left: 2px solid #737374;
+  -webkit-animation: curser 0.8s infinite, typing 20s steps(14) infinite;
+  animation: curser 0.8s infinite, typing 20s steps(14) infinite;
+}
+/* ========================= animation for typeWriter effect ===================================== */
+@keyframes typing {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 8px);
+  }
+}
+@keyframes curser {
+  to {
+    border-left: 5px solid #ffffff;
+  }
+}
+@keyframes words {
+  0%,
+  20% {
+    content: "Dipak Chavan";
+  }
+  21%,
+  40% {
+    content: "Developer";
+  }
+  41%,
+  60% {
+    content: "Freelancer";
+  }
+  61%,
+  80% {
+    content: "IT Engineer";
+  }
+  81%,
+  100% {
+    content: "problem solver";
+  }
+}
+.design {
+  position: absolute;
+  width: 2.5rem;
+  right: 5%;
+  top: 90%;
+  height: 2.5rem;
+  border: 7px solid #06d79c;
+  animation: design 3s linear infinite forwards;
+  -webkit-animation: design 3s linear infinite forwards;
+}
+@keyframes design {
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+.container {
+  position: absolute;
+  bottom: 50px; /* Adjust based on placement */
+  display: flex;
+  left: -52%;
+  justify-content: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 10px);
+  grid-gap:1px;
+  row-gap:12px;
+  /*Animationforup-downmovement*/
+  animation: moveUpDown 2s linear infinite alternate;
+  -webkit-animation: moveUpDown 2s linear infinite alternate;
+}
+
+/* Styling for grid squares */
+.square {
+  width: 5px;
+  height: 5px;
+  background-color: #0099ff; /* Blue color */
+}
+
+/* Keyframes for up-down animation */
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40px);
+    
+}
+}
+/* ========================== responsive for mobile device =========================== */
+@media (max-width: 480px) {
+  .home-text h1 {
+    font-size: 10vw;
+  }
+  .theme {
+    position: fixed;
+    right: 5%;
+  }
+  .home-text p {
+    font-size: 10vw;
+  }
+  .home-text button {
+    width: 50vw;
+    height: 14vw;
+    font-size: 4.7vw;
+  }
+  .logo-img {
+    height: 13vw;
+    width: 13vw;
+  }
+  .home-menu {
+    height: 10vw;
+    width: 10vw;
+    font-size: 5vw;
+  }
+  .hero {
+    gap: 20vw;
+  }
+  .hero-img {
+    width: 50%;
+    height: auto;
+  }
+}
+/* ============================== css for making responsive for laptop device ========================== */
+@media (max-width: 1200px) {
+  .home-menu {
+    right: 8%;
+    position: fixed;
+    padding: 1.5vw;
+    -o-border-radius: 50%;
+    font-size: 1.6vw;
+  }
+  .theme {
+    margin-top: 7rem;
+  }
+  .home-menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+  .hidden-menu {
+    display: none;
+  }
+  .nav-icon {
+    display: none;
+  }
+  .home-text h1 {
+    font-size: 4vw;
+  }
+  .main-home {
+    height: 100vh;
+  }
+  .home-text p {
+    font-size: 2vw;
+  }
+  .home-text button {
+    width: 30vw;
+    height: 5vw;
+    font-size: 3vw;
+  }
+  .logo-img {
+    height: 5vw;
+    width: 5vw;
+  }
+
+  .hero-img {
+    width: 80%;
+    height: auto;
+  }
+}
+/* ========================= css for making responsive for device tablet ========================*/
+@media (max-width: 768px) {
+  .home-menu {
+    padding: 1.5vw;
+    -o-border-radius: 50%;
+    font-size: 1.6vw;
+  }
+  .home-menu ul {
+    display: none;
+  }
+  .hidden-menu {
+    display: inline-block;
+  }
+  .nav-icon {
+    font-size: 1.5rem;
+    padding-left: 0.8rem;
+    padding-top: 0.4rem;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgb(191, 190, 190);
+  }
+  .nav-icon:hover {
+    box-shadow: 5px 5px 5px rgb(191, 190, 190) inset;
+  }
+  .home-text h1 {
+    font-size: 7vw;
+  }
+  .main-home {
+    height: 100vh;
+  }
+  .home-text p {
+    font-size: 4vw;
+  }
+  .home-text button {
+    width: 29vw;
+    height: 6vw;
+    font-size: 3vw;
+  }
+  .logo-img {
+    height: 8vw;
+    width: 8vw;
+  }
+  .hero {
+    gap: 12vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: auto;
+  }
+  .home-text,
+  .home-image {
+    width: 70%;
+    height: auto;
+  }
+  .hero-img {
+    width: 70%;
+    height: auto;
+  }
+}
+/* ========================== responsive for mobile device =========================== */
+@media (max-width: 480px) {
+  .main-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .home-menu {
+    padding: 1.5vw;
+    -o-border-radius: 50%;
+    font-size: 1.6vw;
+  }
+  .home-menu ul {
+    background-color: red;
+    display: none;
+  }
+  .home-nav {
+    padding-right: 3rem;
+  }
+  .nav-icon {
+    font-size: 1.5rem;
+    padding-left: 0.8rem;
+    padding-top: 0.4rem;
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgb(191, 190, 190);
+  }
+  .nav-icon:hover {
+    box-shadow: 5px 5px 5px rgb(191, 190, 190) inset;
+  }
+  .home-text h1 {
+    font-size: 8vw;
+  }
+  .home-text p {
+    font-size: 4vw;
+  }
+  .home-text button {
+    width: 40vw;
+    height: 8vw;
+    font-size: 3vw;
+  }
+  .logo-img {
+    margin-top: 1.5rem;
+    height: 3rem;
+    width: 3rem;
+  }
+  .hero {
+    gap: 10vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: auto;
+  }
+  .home-text,
+  .home-image {
+    width: 100%;
+    height: auto;
+  }
+  .hero-img {
+    width: 80%;
+    height: auto;
+  }
+}

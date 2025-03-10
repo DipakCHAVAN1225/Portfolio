@@ -1,0 +1,289 @@
+/* ================================ css for the skill section ===================================== */
+.Skill {
+  width: 100vw;
+  height: 100vh;
+}
+.Skill-container {
+  width: 100vw;
+}
+.skill-btn {
+  width: 100%;
+  height: 5vw;
+  font-size: 1.7rem;
+  font-family: cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  -o-transition: all 1s ease-in-out;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.skill-btn button:active {
+  padding: 0.3rem 2rem;
+  -o-border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  border-radius: 40px;
+}
+.Skill-card {
+  margin: 5vw 4vw 10vw 10vw;
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.card {
+   background-color: #fff;
+  color: black;
+  margin: 1vw;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 200px;
+  height: 150px;
+  -o-border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.card:hover {
+  color: #2bb0ed;
+  -o-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
+  -webkit-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
+  -moz-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
+  -ms-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
+  transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
+}
+.card-img {
+  width: 90px;
+  height: 90px;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =================================== Education  section styling here =====================================  */
+.edu-container {
+  margin-top: 3rem;
+  margin:3vw 10vw 0vw 10vw;
+  border-right: 1px solid #d1cfcf;
+  width: 42vw;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+}
+.edu-card {
+  height: 33vh;
+  width: 40vw;
+  -webkit-box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 9px 13px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  font-family: cursive;
+}
+.edu-card h1 {
+  margin-top: 10px;
+  font-size: 23px;
+}
+.edu-card p {
+  font-weight: 400;
+  margin-top: 15px;
+}
+.edu-line {
+  height: 2px;
+  margin-top: 3vw;
+  width: 5vw;
+  background-color: #d5d5d6;
+}
+.edu-icon {
+  position: absolute;
+  right: -4%;
+  top: 9%;
+  background-color: #eff0f4;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -o-border-radius: 60px;
+  font-size: 1.1vw;
+  border: 1px solid #c8c8c9;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  border-radius: 60px;
+}
+.edu-container2 {
+  margin:0px 10vw;
+  border-left: 1px solid #d1cfcf;
+  width: 42vw;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left:41.8%;
+}
+.edu-card2 {
+  height: 33vh;
+  width:40vw;
+  -webkit-box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 9px 9px 13px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  font-family: cursive;
+}
+.edu-icon2 {
+  position: absolute;
+  left:-4%;
+  top: 9%;
+  background-color: #eff0f4;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -o-border-radius: 60px;
+  font-size: 1.1vw;
+  border: 1px solid #c8c8c9;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  border-radius: 60px;
+}
+.edu-line2 {
+  height: 2px;
+  width: 5vw;
+  background-color: #c8c8c9;
+  margin:2.7rem 0px;
+
+}
+/* ======================================= css to make it responsive for the laptop ==============================  */
+@media (max-width: 1200px) {
+  .Skill{
+    width: 100vw;
+    height: 100vh;
+  }
+  .Skill-card {
+    margin: auto;
+    justify-content: center;
+    width: 90vw;
+  }
+  .card {
+    width: 180px;
+    height: 140px;
+  }
+  .edu-container {
+    width:45vw;
+    margin: 5vw 5vw;
+  }
+  .edu-card {
+    width: 80vw;
+  }
+  .edu-container2 {
+    width:45vw;
+    margin: 5vw 5vw;
+  }
+  .edu-card2 {
+    width: 80vw;
+  }
+}
+/* ================================ css to make it responsive  for the tablet ================================= */
+@media (max-width: 768px) {
+  .Skill {
+    height: auto;
+  }
+  .skill-btn {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .Skill-card {
+    margin: 5vw 1vw 10vw 1vw;
+    width: 98vw;
+  }
+  .card {
+    width: 160px;
+    height: 130px;
+  }
+  .edu-container {
+    width:50vw;
+    margin:0 2rem;
+  }
+  .edu-card {
+    width: 90vw;
+  }
+  .edu-icon {
+    font-size: 2vw;
+    right: -6%;
+    top: 12%;
+  }
+  .edu-container2 {
+    width:50vw;
+    margin:5px 2rem;
+  }
+  .edu-card2 {
+    width: 90vw;
+  }
+  .edu-icon2 {
+    font-size: 2vw;
+    right: -6%;
+    top: 12%;
+  }
+}
+/* =========================================== css to make it responsive for the mobile device =========================== */
+
+@media (max-width: 480px) {
+  .skill-btn {
+    font-size: 1.2rem;
+    height: 8vw;
+  }
+  .Skill-card {
+    margin: 5vw 0.5vw 10vw 0.5vw;
+    width: 100vw;
+  }
+  .card {
+    width: 140px;
+    height: 120px;
+  }
+  .edu-container {
+    width: 80vw;
+    margin: auto;
+  }
+  .edu-card {
+    width: 95vw;
+    height: auto;
+  }
+  .edu-card h1 {
+    font-size: 5vw;
+  }
+  .edu-icon {
+    right: -8%;
+    top: 15%;
+  }
+  .edu-container2 {
+    width: 80vw;
+    margin-left: -7rem;
+    margin-top: 2rem;
+  }
+  .edu-card2 {
+    width: 95vw;
+    height: auto;
+  }
+  .edu-icon2 {
+    right: -8%;
+    top: 15%;
+  }
+}
