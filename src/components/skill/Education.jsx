@@ -40,7 +40,7 @@ function Education(){
     // =========================== it is a education section in skill =====================================
     <div ref={containerRef}>
     <section className=" edu-container bg-red-404">
-        <div className="edu-card bg-gray-200 p-8 text-end">
+        <div className="edu-card p-8 text-end">
         <p className="text-cyan-500">2022 – 2025</p>
         <h1 className="">Bachelor Of Computer Application</h1>
          <p>Moolji Jaitha College (jalgaon)</p>
@@ -51,12 +51,12 @@ function Education(){
     </section>
     <section className=" edu-container2 bg-red-404">
         <div className="edu-line2"></div>
-        <div className="edu-card2 bg-gray-200 p-8 text-end">
+        <div className="edu-card2  p-8 text-end">
         <p className="edu-icon2"><i className="fa-solid fa-graduation-cap"></i></p>
-        <p className="text-cyan-500">2022 – 2025</p>
-        <h1 className="">Bachelor Of Computer Application</h1>
-         <p>Moolji Jaitha College (jalgaon)</p>
-          <p>CGPA : 7.50</p>
+        <p className="text-cyan-500">2021 – 2022</p>
+        <h1 className="">12th</h1>
+         <p>gram vikash vidyalay  (pimpalgaon hare)</p>
+          <p>per:72%</p>
         </div>
       
     </section>
