@@ -60,9 +60,7 @@ function Home() {
           duration: 0.7,
           opacity: 0,
           delay: 1,
-        },
-        { scope: ".home-text" }
-      ),
+        }),
       gsap.from(".hero-img", {
         y: 200,
         duration: 1,

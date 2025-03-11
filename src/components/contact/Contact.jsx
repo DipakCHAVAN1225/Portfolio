@@ -73,9 +73,7 @@ useGSAP(() => {
         trigger:".contact-detail",
         start: "top 98%", 
         end: "top 30%",
-        scrub: true,
-        
-        
+        scrub: true,  
     }
 });
 
@@ -87,9 +85,7 @@ gsap.from(".form input", {
       trigger:".form input",
       start: "top 98%", 
       end: "top 30%",
-      scrub: true,
-      
-      
+      scrub: true,    
   }
 });
 gsap.from(".form textarea", {
@@ -100,22 +96,18 @@ gsap.from(".form textarea", {
       trigger:".form textarea",
       start: "top 98%", 
       end: "top 30%",
-      scrub: true,
-      
-      
+      scrub: true,    
   }
 });
 gsap.from("h2", {
   opacity:0,
-  x:400,
+  x:500,
 
   scrollTrigger: {
       trigger:"h2",
       start: "top 98%", 
       end: "top 30%",
-      scrub: true,
-      
-      
+      scrub: true,    
   }
 });
 
