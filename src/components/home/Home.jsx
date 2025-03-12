@@ -4,6 +4,7 @@ import "../../App.css";
 import { useState, useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import ShootingStar from "../ShootingStar";
 
 function Home() {
   // Retrieve theme from localStorage or set default to "light"
@@ -72,6 +73,7 @@ function Home() {
   return (
     <main>
       <div className="main-home" id="home">
+        {<ShootingStar/>}
         {/*================== Home page Navbar ========================== */}
 
         <nav

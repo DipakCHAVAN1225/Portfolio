@@ -52,7 +52,7 @@ const Skill=()=> {
           className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700"
           onClick={() => handleClick(<Ex/>)}
         >
-          Button 2
+         Experience
         </button>
         <button
           className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700"
