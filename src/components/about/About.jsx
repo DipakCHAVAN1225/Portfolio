@@ -16,24 +16,23 @@ function About() {
   useGSAP(() => {
     gsap.from(".about-img", {
         opacity:0,
-        x:-200,
+        scale:0,
         duration: 1,
         scrollTrigger: {
             trigger:".about-img",
-            start: "top 80%", 
-            end: "top 30%", 
+            start: "top 95%", 
+            end: "top 40%", 
             scrub: true
         }  
     })
 
     gsap.from(".about-right-side", {
       opacity:0,
-      x:200,
-  
+      scale:0,
       scrollTrigger: {
           trigger:".about-right-side",
-          start: "top 80%", 
-          end: "top 30%", 
+          start: "top 95%", 
+          end: "top 40%", 
           scrub: true, 
       }
   });

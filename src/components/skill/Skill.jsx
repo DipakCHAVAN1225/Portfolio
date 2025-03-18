@@ -25,7 +25,7 @@ const Skill=()=> {
   useGSAP(() => {
     gsap.from(".px-4", {
       opacity:0,
-      scale:3,
+      scale:0,
   
       scrollTrigger: {
           trigger:".px-4",

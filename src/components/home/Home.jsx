@@ -53,6 +53,7 @@ function Home() {
       duration: 0.7,
       opacity: 0,
       delay: 1,
+      scrub:true
     }),
       gsap.from(
         " h1",
@@ -61,12 +62,15 @@ function Home() {
           duration: 0.7,
           opacity: 0,
           delay: 1,
+          scrub:true
         }),
-      gsap.from(".hero-img", {
-        y: 200,
+      gsap.from(".hero-img img", {
+         y:400,
+         ease: "power2.InOut",
         duration: 1,
         opacity: 0,
         delay: 0.5,
+        scrub:true
       });
   });
 
@@ -177,7 +181,7 @@ function Home() {
           </section>
           {/* =========================== Image Section =============================*/}
           <section className="home-image flex items-center justify-center">
-          <div className="hero-img">  <img src="/hero.jpg"></img></div>
+          <div className="hero-img">  <img src="/hero1.png"></img></div>
           </section>
           <div className="design"></div>
         </section>

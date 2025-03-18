@@ -6,7 +6,6 @@
 .main-home {
   width: 100vw;
   height: 100vh;
-  
 }
 /* ============================= css for navbar section ============================= */
 .hidden-menu {
@@ -110,6 +109,29 @@
   width: 50%;
   height: 100%;
 }
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+    /*Moveup*/
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+}
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.hero-img {
+  animation: floatUpDown 3s ease-in-out infinite;
+  -webkit-animation: floatUpDown 3s ease-in-out infinite;
+}
+
+
 .home-text {
   display: flex;
   align-items: start;
@@ -146,16 +168,10 @@
   box-shadow: 3px 3px 5px rgb(191, 190, 190) inset;
 }
 .hero-img{
-  width: 57%;
-  height: 70%;
-  border-radius: 50%;
+  width: 65%;
+  height: 85%;
   position: relative;
   z-index: 1;
-  -webkit-border-radius:50%;
-  -moz-border-radius:50%;
-  -ms-border-radius:50%;
-  -o-border-radius:50%;
-  border-radius:50%;
 }
 .hero-img img{
   width: 100%;
