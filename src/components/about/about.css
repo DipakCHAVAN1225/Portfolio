@@ -1,266 +1,282 @@
-.about{
+/* =================== Base Styling (Works for Large Screens) ==================== */
+.about {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction:row;
+  flex-direction: row;
+  padding: 2vw;
 }
-/* ============================= css for the left side of this page ================================= */
-.about-left-side{
-  width:40%;
-  height: 100%;
+
+/* ======== Left Side Styling ======== */
+.about-left-side {
+  width: 40%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: end;
-  justify-content:center;
-  margin-right: 2vw;
+  align-items: center;
+  justify-content: center;
+}
 
+.about-img {
+  width: 25vw;
+  height: 28vw;
 }
-.about-img{
- width:25vw;
- height:28vw;
-}
-.about-img img{
+
+.about-img img {
   width: 100%;
   height: 100%;
+  object-fit: cover; /* Ensures the image scales properly */
 }
-.connect-me{
- margin: 2vw;
- width:25vw;
- height:3vw;
- display: flex;
- align-items:center;
- justify-content: space-between;
- font-size:1.7vw;
+
+.connect-me {
+  margin-top: 2vw;
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.5vw;
 }
-.connect-me li{
-  width:3vw;
-  height:3vw;
+
+.connect-me li {
+  width: 3vw;
+  height: 3vw;
   border-radius: 50%;
   list-style: none;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  box-shadow:5px 5px 5px rgb(191, 190, 190);
+  box-shadow: 5px 5px 5px rgb(191, 190, 190);
+  transition: all 0.3s ease-in-out;
 }
-.connect-me li:hover{
-  box-shadow:5px 5px 5px rgb(191, 190, 190)inset;
+
+.connect-me li:hover {
+  box-shadow: inset 5px 5px 5px rgb(191, 190, 190);
   color: #2CB0ED;
-  margin-bottom:20px
+  transform: translateY(-5px);
 }
-/* ================================ css for the right side of that page ========================================== */
-.about-right-side{
-  padding-bottom:9vw;
-  width:60%;
-  height: 100%;
+
+/* ======== Right Side Styling ======== */
+.about-right-side {
+  width: 55%;
+  padding: 2vw;
   display: flex;
-  align-items:start;
-  justify-content: center;
   flex-direction: column;
+  align-items: start;
+  text-align: start;
+  font-size: 1rem;
 }
-.about-right-side h1{
+
+.about-right-side h1 {
   font-family: cursive;
   font-size: 3vw;
   font-weight: bold;
-  color:#2CB0ED;
-}
-.about-right-side p{
-  width:70%;
-  font-size:1.2vw;
-  font-family: cursive;
-  margin:1vw 0px;
-}
-.about-right-side p span{
   color: #2CB0ED;
 }
-.about-right-side button{
-  width:13vw;
-  height:3vw;
-  margin:0px 2vw ;
-  color: #2CB0ED;
+
+.about-right-side p {
+  width: 100%;
+  font-size: 1.2vw;
+  line-height: 1.5;
+}
+
+.about-right-side button {
+  width: 12vw;
+  height: 3vw;
+  font-size: 1.2vw;
   font-weight: 500;
-  -webkit-border-radius:40px;
-  -moz-border-radius:40px;
-  -ms-border-radius:40px;
-  -o-border-radius:40px;
-  border-radius:40px;
-  box-shadow:5px 5px 5px rgb(191, 190, 190);
+  color: #2CB0ED;
+  border-radius: 40px;
+  box-shadow: 5px 5px 5px rgb(191, 190, 190);
   cursor: pointer;
-}
-.about-right-side button:hover{
-  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+  transition: all 0.3s ease-in-out;
 }
 
-/* ======================= css for making responsive for the very small device ================================= */
-
-/* ===================== css for the making this page responsive for mobile device =============================== */
-@media (max-width: 480px) {
-  .about{
-    margin-top: 5rem;
-    height: auto;
-    flex-direction: column;
-    gap:5vw;
-    padding-top: 0px;
-  }
-  .about-left-side{
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-  .about-img img{
-     width: 100%;
-     height: 100%;
-   }
-  .connect-me{
-    margin:4vw;
-    height:20vw;
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    font-size:5vw;
-   }
-   .connect-me li {
-    width:20vw;
-    height:20vw;
-  }
-  .about-right-side h1{
-    font-size:10vw;
-  }
-  .about-right-side strong{
-  display: flex;
-  flex-direction: column;
-  gap: 2vw;
-    
-  }
-  .about-right-side strong button{
-    font-size:2vw;
-    width: 100%;
-    height: 2vw;
-
-  }
-  
-   
+.about-right-side button:hover {
+  box-shadow: inset 3px 3px 5px rgb(191, 190, 190);
 }
 
-/* ================== css for making responsive for the tablet ======================================== */
-@media (max-width: 768px) {
+/* ======================== 📱 Mobile Responsive (max-width: 600px) ======================== */
+@media (max-width: 600px) {
   .about {
     flex-direction: column;
     height: auto;
-    padding: 20px;
+    padding: 5vw 2vw;
   }
-  .about-left-side{
-    align-items: center;
-    gap:30vw;
-  }
-  .about-img {
-  margin-top:15vh;
-    width:50vw;
-    align-items: center;
-    margin-right: 0;
-    padding-top: 0;
-  }
-  .about-img img {
 
-    width:100%;
+  .about-left-side {
+    width: 100%;
+    align-items: center;
+  }
+
+  .about-img {
+    width: 70vw;
     height: auto;
   }
 
-  .connect-me{
-    height:16vw;
-    width:60vw !important;
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    font-size:5vw;
-   }
-   .connect-me li {
-    width:8vw;
-    height:8vw;
+  .connect-me {
+    width: 80%;
+    flex-wrap: wrap;
+    font-size: 4vw;
   }
+
+  .connect-me li {
+    width: 15rem;
+    height: 15rem;
+  }
+
   .about-right-side {
     width: 100%;
-    padding-bottom: 5vw;
+    text-align: center;
     align-items: center;
+  }
+
+  .about-right-side h1 {
+    font-size: 8vw;
+  }
+
+  .about-right-side p {
+    font-size: 4vw;
     text-align: center;
   }
-  .about-right-side h1{
-    font-size:10vw;
-  }
-  .about-right-side p {
-    width: 90%;
-    font-size:3vw;
-  }
-  .about-right-side strong {
-    width:100%;
+
+  .about-right-side button {
+    padding: 2vw;
+    font-size: 4vw;
     height:auto;
-    padding: 3vw 0px;
-    margin: 10px 0;
-  } 
-  .about-right-side strong button{
-    height:6vw;
   }
 }
 
-/* =================== css for making responsive for the laptop ========================================== */
+/* ======================== 📟 Tablet Responsive (max-width: 900px) ======================== */
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+    height: auto;
+    padding: 5vw;
+  }
 
-@media (min-width: 769px) {
+  .about-left-side {
+    width: 100%;
+    align-items: center;
+  }
+
+  .about-img {
+    width: 50vw;
+  }
+
+  .connect-me {
+    width: 60%;
+    font-size: 3vw;
+  }
+
+  .connect-me li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:5vw;
+    height: 5vw;
+  }
+
+  .about-right-side {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-right-side h1 {
+    font-size: 6vw;
+  }
+
+  .about-right-side p {
+    font-size: 2.5vw;
+  }
+  .about-right-side strong{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+
+  }
+  .about-right-side button ,a{
+    gap: 20px;
+    width: 100%;
+    padding:1vw;
+    font-size: 2.5vw;
+    height: auto;
+  }
+}
+
+/* ======================== 💻 Laptop Responsive (1024px - 1440px) ======================== */
+@media (min-width: 1024px) and (max-width: 1440px) {
   .about {
     flex-direction: row;
     height: 100vh;
-    padding: 0;
   }
+
   .about-left-side {
-    width: 40%;
+    width: 45%;
     align-items: end;
     margin-right: 2vw;
   }
+
   .about-img {
-    width: 25vw;
-    height: 28vw;
+    width: 35vw;
+    height: 40vw;
   }
+
   .connect-me {
-    width: 25vw;
-    height: 3vw;
-    font-size: 1.7vw;
+    width: 30vw;
+    font-size: 1.8vw;
   }
+
   .connect-me li {
-    width: 3vw;
-    height: 3vw;
+    width: 4vw;
+    height: 4vw;
   }
+
   .about-right-side {
-    width: 60%;
-    padding-bottom: 9vw;
-    align-items: start;
+    width: 55%;
     text-align: left;
   }
+
   .about-right-side h1 {
     font-size: 3vw;
   }
+
   .about-right-side p {
-    width: 70%;
     font-size: 1.2vw;
   }
-  .about-right-side strong {
-    width: auto;
-    height: auto;
-    padding: 0;
-    margin: 0;
+
+  .about-right-side button {
+    width: 12vw;
+    font-size: 1.5vw;
   }
-  .about-right-side strong button {
-    height: 3vw;
+}
+
+/* ======================== 🖥 Widescreen (1440px and above) ======================== */
+@media (min-width: 1440px) {
+  .about {
+    padding: 4vw;
+  }
+
+  .about-img {
+    width: 30vw;
+    height: 35vw;
+  }
+
+  .connect-me {
+    font-size: 1.5vw;
+  }
+
+  .about-right-side h1 {
+    font-size: 2.5vw;
+  }
+
+  .about-right-side p {
+    font-size: 1vw;
+  }
+
+  .about-right-side button {
+    font-size: 1.2vw;
   }
 }
