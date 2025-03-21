@@ -40,8 +40,8 @@
 }
 
 .connect-me li {
-  width: 3vw;
-  height: 3vw;
+  width:3vw;
+  height:3vw;
   border-radius: 50%;
   list-style: none;
   display: flex;
@@ -77,8 +77,12 @@
 
 .about-right-side p {
   width: 100%;
-  font-size: 1.2vw;
+  margin-top:20px ;
+  font-size:1.5vw;
   line-height: 1.5;
+}
+.about-right-side p span{
+  color: #2CB0ED;
 }
 
 .about-right-side button {
@@ -117,15 +121,11 @@
 
   .connect-me {
     width: 80%;
+    height:40%;
+    padding: 20px;
     flex-wrap: wrap;
     font-size: 4vw;
   }
-
-  .connect-me li {
-    width: 15rem;
-    height: 15rem;
-  }
-
   .about-right-side {
     width: 100%;
     text-align: center;
@@ -171,11 +171,9 @@
   }
 
   .connect-me li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:5vw;
-    height: 5vw;
+    padding:6px;
+    width:6vw;
+    height:6vw;
   }
 
   .about-right-side {
@@ -230,8 +228,8 @@
   }
 
   .connect-me li {
-    width: 4vw;
-    height: 4vw;
+    width: 5vw;
+    height: 5vw;
   }
 
   .about-right-side {
@@ -273,7 +271,7 @@
   }
 
   .about-right-side p {
-    font-size: 1vw;
+    font-size:1.5vw;
   }
 
   .about-right-side button {

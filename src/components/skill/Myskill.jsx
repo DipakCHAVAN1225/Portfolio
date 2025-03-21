@@ -1,29 +1,43 @@
 import "./skill.css";
-import { useRef } from "react";
+import { useRef ,useEffect,useState} from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function Myskill() {
+function MySkill() {
   // GSAP animation setup
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if the device is mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+    handleResize(); // Check on mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const containerRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
+  if(!isMobile){
     gsap.from(".card", {
       opacity: 0,
       y: 100,
       duration: 1,
-      stagger: 0.2, // Smooth stagger effect for each card
+      stagger: 0.5, // Smooth stagger effect for each card
       ease: "power2.out",
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 80%",
         end: "top 30%",
-        scrub: true,
+        scrub:1,
       },
     });
-  }, { scope: containerRef });
+  }
+  }, [isMobile]);
 
   // Skill data
   const skills = [
@@ -51,4 +65,4 @@ function Myskill() {
   );
 }
 
-export default Myskill;
+export default MySkill;

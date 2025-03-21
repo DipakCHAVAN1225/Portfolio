@@ -19,7 +19,7 @@ function Education() {
         trigger: containerRef.current,
         start: "top 80%",
         end: "top 30%",
-        scrub: true,
+        scrub: 3,
       },
     });
   }, { scope: containerRef });

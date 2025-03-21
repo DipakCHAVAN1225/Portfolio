@@ -11,38 +11,38 @@ function About() {
 
   const containerRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
-
-  useGSAP(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".about-img", {
-        opacity: 0,
-        scale: 0.9,
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".about-img",
-          start: "top 90%",
-          end: "top 50%",
-          scrub: true,
-        },
-      });
-
-      gsap.from(".about-right-side", {
-        opacity: 0,
-        x: 50,
-        duration: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".about-right-side",
-          start: "top 90%",
-          end: "top 50%",
-          scrub: true,
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert(); // Cleanup animation on unmount
-  }, { scope: containerRef });
+  
+    useGSAP(() => {
+      const ctx = gsap.context(() => {
+        gsap.from(".about-img", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-img",
+            start: "top 90%",
+            end: "top 50%",
+            scrub:1,
+          },
+        });
+  
+        gsap.from(".about-right-side", {
+          opacity: 0,
+          x: 50,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-right-side",
+            start: "top 90%",
+            end: "top 50%",
+            scrub:1,
+          },
+        });
+      }, containerRef);
+  
+      return () => ctx.revert(); // Cleanup animation on unmount
+    }, { scope: containerRef });
 
   return (
     <section ref={containerRef} className="about" id="about">

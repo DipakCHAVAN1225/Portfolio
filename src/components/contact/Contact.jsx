@@ -69,7 +69,7 @@ function Contact() {
           trigger: ".contact-detail",
           start: "top 98%",
           end: "top 40%",
-          scrub: true,
+          scrub:1,
         },
       });
 
@@ -83,7 +83,7 @@ function Contact() {
           trigger: ".form input",
           start: "top 98%",
           end: "top 40%",
-          scrub: true,
+          scrub:1,
         },
       });
 
@@ -96,7 +96,7 @@ function Contact() {
           trigger: ".form textarea",
           start: "top 98%",
           end: "top 40%",
-          scrub: true,
+          scrub:1,
         },
       });
 
@@ -109,7 +109,7 @@ function Contact() {
           trigger: "h2",
           start: "top 98%",
           end: "top 40%",
-          scrub: true,
+          scrub:1,
         },
       });
     }, containerRef);

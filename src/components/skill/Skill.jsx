@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Education from "./Education";
 import Ex from "./Ex";
-import Myskill from "./Myskill";
+import MySkill from "./Myskill";
 import "./skill.css";
 
 import { useGSAP } from "@gsap/react";
@@ -25,7 +25,7 @@ const Skill = () => {
         trigger: ".tab-buttons",
         start: "top 96%",
         end: "top 30%",
-        scrub: true,
+        scrub:1,
       },
     });
   }, { scope: containerRef });
@@ -34,13 +34,13 @@ const Skill = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "skill":
-        return <Myskill />;
+        return <MySkill />;
       case "experience":
         return <Ex />;
       case "education":
         return <Education />;
       default:
-        return <Myskill />;
+        return <MySkill />;
     }
   };
 

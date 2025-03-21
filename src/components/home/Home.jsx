@@ -1,4 +1,4 @@
-import Img from "./logo.jpg";
+
 import "./home.css";
 import "../../App.css";
 import { useState, useEffect, useRef } from "react";
@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ShootingStar from "../ShootingStar";
 
+gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   // Retrieve theme from localStorage or set default to "light"
@@ -37,7 +38,6 @@ function Home() {
 
   // GSAP Animation
   const homeP = useRef();
-  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
     gsap.from(homeP.current, {
@@ -45,7 +45,7 @@ function Home() {
       duration: 0.7,
       opacity: 0,
       delay: 1,
-      scrub: true,
+      scrub: 3,
     });
 
     gsap.from("h1", {
@@ -53,7 +53,7 @@ function Home() {
       duration: 0.7,
       opacity: 0,
       delay: 1,
-      scrub: true,
+      scrub:3,
     });
 
     gsap.from(".hero-img img", {
@@ -62,7 +62,7 @@ function Home() {
       duration: 1,
       opacity: 0,
       delay: 0.5,
-      scrub: true,
+      scrub:3,
     });
   });
 
@@ -74,7 +74,7 @@ function Home() {
         {/* Home Navbar */}
         <nav className={`home-nav ${isDark ? "bg-[#2D2D2D]" : "bg-[#f1f1f1]"}`}>
           <div className="logo-img">
-            <img src={Img} alt="Logo" />
+            <img src="/header.jpg" alt="Logo" />
           </div>
 
           <div className="home-menu">
