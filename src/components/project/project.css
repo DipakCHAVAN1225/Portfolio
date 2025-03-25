@@ -9,7 +9,6 @@
 .project-container h1{
   color:#2bb0ed;
   font-size: 4vw;
-  font-family: cursive;
   font-weight: 600;
 }
 
@@ -69,6 +68,9 @@ color: #2bb0ed;
 @media (max-width: 480px) {
   .project-container {
       height: auto;
+  }
+  section h1{
+    font-size: 3rem !important;
   }
   .project{
     height: auto;

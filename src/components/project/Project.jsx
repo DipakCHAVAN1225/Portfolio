@@ -35,7 +35,8 @@ function Project() {
          <ProjectCard 
          proName="SIDCUP CLONE" 
          proUrl="/Sidcup clone.png" 
-         proDetail="View Project"/>
+         proDetail="View Project"
+         link="https://dipakchavan1225.github.io/sidcupClone/"/>
 
          <ProjectCard 
          proName="POKEMON SEARCH"  
