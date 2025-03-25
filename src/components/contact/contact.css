@@ -220,6 +220,7 @@ section textarea:hover{
     width: 90vw;
   }
   section textarea {
+    margin-top: 20px;
     width: 90vw;
   }
 }
