@@ -76,6 +76,7 @@
 
 .about-right-side p {
   width: 100%;
+  z-index: 10;
   margin-top:20px ;
   font-size:1.5vw;
   line-height: 1.5;

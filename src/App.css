@@ -17,13 +17,14 @@ html,body{
 .mouse-dot{
     width: 100px;
     height:100px;
-    background-color: rgba(118, 203, 242, 0.409);
+      color: red;
+  background-color:#fff;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     transform: translate(-50%, -50%);
     z-index: 0;
-    background-blend-mode: difference;
+    mix-blend-mode:difference; 
   }
   @media (max-width:720px) {
     .mouse-dot {
