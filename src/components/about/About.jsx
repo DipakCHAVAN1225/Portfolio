@@ -6,7 +6,7 @@ import { useRef} from "react";
 
 function About() {
   const openResume = () => {
-    window.open("/Dipak2.pdf", "_blank");
+    window.open("/Dipak_Chavan_9322706604.pdf", "_blank");
   };
 
   const containerRef = useRef(null);
@@ -48,7 +48,7 @@ function About() {
     <section ref={containerRef} className="about" id="about">
       <div className="about-left-side">
         <div className="about-img">
-          <img src="/hero.jpg" alt="Profile" loading="lazy" />
+          <img src="/hero2.jpeg" alt="Profile" loading="lazy" />
         </div>
         <div className="connect-me">
           <li><a href="https://www.facebook.com/profile.php?id=100054613264309"><i className="fa-brands fa-facebook"></i></a></li>

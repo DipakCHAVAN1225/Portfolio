@@ -2,46 +2,33 @@
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import "./App.css"
-import Skill from "./components/skill/Skill";
+import Skill from "./components/skill/skill";
 import Project from "./components/project/Project";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
-import Loader from "./components/Loader";
-import  { useState, useEffect } from 'react';
+import { Route,Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [loader,setLoader]=useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false)
-    }, [3000]);
-    const handleMouseMove = (event) => {
-      setPosition({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
     return (
     <div>
-      {
-        loader?(<Loader/>):(
           <>
-          <div className="mouse-dot" style={{ left: position.x, top: position.y }}></div>
-         <Home />
+          <Navbar/>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route  path="/about" element={<About/>}/>
+            <Route path="/services" element={<Skill/>}/>
+            <Route path="/project" element={<Project/>}/>
+            <Route path="/contact" element={<Contact/>}/>
+          </Routes>
+          <Footer/>
+         {/* <Home />
          < About/>
          <Skill />
          <Project/>
          <Contact/>
-         <Footer/>
+         <Footer/> */}
          </>
-        )
-      }
     </div>
       
     )

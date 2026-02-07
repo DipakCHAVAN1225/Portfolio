@@ -136,7 +136,7 @@ function Contact() {
         <section className="contact-card">
           <i className="fa-solid fa-location-dot"></i>
           <strong>Address</strong>
-          <p>Jalgaon, Maharashtra</p>
+          <p>PUNE , Maharashtra</p>
         </section>
       </div>
 
