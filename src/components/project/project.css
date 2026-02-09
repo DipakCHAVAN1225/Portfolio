@@ -68,6 +68,7 @@ color: #2bb0ed;
 @media (max-width: 480px) {
   .project-container {
       height: auto;
+      margin-top: 10vh;
   }
   section h1{
     font-size: 3rem !important;

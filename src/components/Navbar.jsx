@@ -68,11 +68,11 @@ const Navbar = () => {
             ${isMenuOpen ? "translate-y-0" : "translate-x-full"}`}
           >
             <ul>
-              <li><a onClick={handleCloseMenu} href="#home">Home</a></li>
-              <li><a onClick={handleCloseMenu} href="#about">About</a></li>
-              <li><a onClick={handleCloseMenu} href="#skill">Services</a></li>
-              <li><a onClick={handleCloseMenu} href="#project">Project</a></li>
-              <li><a onClick={handleCloseMenu} href="#contact">Contact</a></li>
+              <li><a onClick={handleCloseMenu} href="/">Home</a></li>
+              <li><a onClick={handleCloseMenu} href="/about">About</a></li>
+              <li><a onClick={handleCloseMenu} href="/services">Services</a></li>
+              <li><a onClick={handleCloseMenu} href="/project">Project</a></li>
+              <li><a onClick={handleCloseMenu} href="/contact">Contact</a></li>
             </ul>
           </div>
         </nav>

@@ -117,6 +117,7 @@
     flex-direction: column;
     height: auto;
     padding: 5vw 2vw;
+    margin-top:10vh;
   }
 
   .about-left-side {

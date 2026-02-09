@@ -209,6 +209,7 @@ section textarea:hover{
     display: flex;
     flex-direction: column;
     gap:5vw;
+    margin-top: 10vh;
   }
   .contact-card {
     width: 90vw;
