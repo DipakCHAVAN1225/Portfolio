@@ -1,288 +1,601 @@
-/* ================================ css for the skill section ===================================== */
-.Skill {
-  width: 100vw;
-  height: 100vh;
-  margin-top: 20vh;
-}
-.Skill-container {
-  width: 100vw;
-}
-.skill-btn {
+/* ============================================
+   SKILL.CSS — Skills, Education & Experience
+   ============================================ */
+
+/* ============================================
+   SECTION BASE
+   ============================================ */
+.skill-section {
   width: 100%;
-  height: 5vw;
-  font-size: 1.7rem;
-  font-family: cursive;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4rem;
-  margin-bottom: 4rem;
-  -o-transition: all 1s ease-in-out;
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-.skill-btn button:active {
-  padding: 0.3rem 2rem;
-  -o-border-radius: 40px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  border-radius: 40px;
-}
-.Skill-card {
-  margin: 5vw 4vw 10vw 10vw;
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-.card {
-  margin: 1vw;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  width: 200px;
-  height: 150px;
-  -o-border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  -o-transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  align-items: center;
+  gap: clamp(28px, 4vw, 52px);
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
 }
-.card:hover {
-  color: #2bb0ed;
-  -o-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
-  -webkit-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
-  -moz-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
-  -ms-transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
-  transform: perspective(400px) rotateX(-3deg) rotateY(-6deg);
+
+/* Background decoration */
+.skill-section::before {
+  content: "";
+  position: absolute;
+  width: clamp(200px, 40vw, 500px);
+  height: clamp(200px, 40vw, 500px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.06) 0%, transparent 70%);
+  top: -10%;
+  right: -8%;
+  border-radius: 50%;
+  pointer-events: none;
 }
-.card-img {
-  width: 90px;
-  height: 90px;
+
+/* ============================================
+   HEADING
+   ============================================ */
+.skill-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
 }
-.card-img img {
+
+.skill-eyebrow {
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 600;
+  color: #2CB0ED;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  background: rgba(44, 176, 237, 0.08);
+  border-radius: 100px;
+  border: 1px solid rgba(44, 176, 237, 0.2);
+}
+
+.skill-heading h2 {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.skill-highlight {
+  color: #2CB0ED;
+}
+
+.skill-subtext {
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: #888;
+  max-width: 500px;
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================================
+   TAB BUTTONS
+   ============================================ */
+.skill-tabs {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.5vw, 16px);
+  background: #f4f6f8;
+  padding: clamp(5px, 0.8vw, 8px);
+  border-radius: 100px;
+  box-shadow: inset 3px 3px 8px rgba(191,190,190,0.4), inset -2px -2px 6px rgba(255,255,255,0.9);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skill-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 600;
+  padding: clamp(9px, 1.2vw, 13px) clamp(18px, 2.5vw, 30px);
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.skill-tab-btn:hover {
+  color: #2CB0ED;
+}
+
+.skill-tab-btn--active {
+  background: #fff;
+  color: #2CB0ED;
+  box-shadow: 4px 4px 12px rgba(44,176,237,0.18), -2px -2px 8px rgba(255,255,255,0.9);
+}
+
+/* ============================================
+   TAB CONTENT WRAPPER
+   ============================================ */
+.skill-content {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   SKILL CARDS GRID
+   ============================================ */
+.skill-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 22px);
+  width: 100%;
+}
+
+/* Individual skill card */
+.skill-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(16px, 2vw, 26px) clamp(12px, 1.5vw, 20px);
+  box-shadow:
+    5px 5px 14px rgba(191, 190, 190, 0.45),
+    -3px -3px 9px rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,176,237,0.04), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 18px;
+}
+
+.skill-card:hover {
+  transform: perspective(400px) rotateX(-4deg) rotateY(-5deg) scale(1.04);
+  box-shadow:
+    8px 16px 32px rgba(44, 176, 237, 0.2),
+    -3px -3px 9px rgba(255, 255, 255, 0.9);
+  color: #2CB0ED;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card-img {
+  width: clamp(52px, 6vw, 76px);
+  height: clamp(52px, 6vw, 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-/* =================================== Education  section styling here =====================================  */
-.edu-container {
-  margin-top: 3rem;
-  margin:3vw 10vw 0vw 10vw;
-  border-right: 1px solid #d1cfcf;
-  width: 42vw;
+.skill-card:hover .skill-card-img img {
+  transform: scale(1.1);
+}
+
+.skill-card-name {
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  color: #1a1a2e;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.skill-card:hover .skill-card-name {
+  color: #2CB0ED;
+}
+
+/* Progress bar */
+.skill-bar-track {
+  width: 100%;
+  height: 5px;
+  background: rgba(44, 176, 237, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  width: var(--level, 0%);
+  background: linear-gradient(90deg, #2CB0ED, #06d79c);
+  border-radius: 3px;
+  animation: skillBarGrow 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: 0.3s;
+}
+
+@keyframes skillBarGrow {
+  from { width: 0; }
+  to   { width: var(--level, 0%); }
+}
+
+.skill-level {
+  font-size: clamp(9px, 1vw, 11px);
+  color: #aaa;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   EXPERIENCE (EMPTY STATE)
+   ============================================ */
+.ex-empty {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  position: relative;
-
+  gap: clamp(12px, 2vw, 20px);
+  padding: clamp(48px, 8vw, 80px) 20px;
+  text-align: center;
 }
+
+.ex-empty-icon {
+  width: clamp(60px, 8vw, 90px);
+  height: clamp(60px, 8vw, 90px);
+  border-radius: 50%;
+  background: rgba(44, 176, 237, 0.08);
+  border: 2px dashed rgba(44, 176, 237, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(22px, 3vw, 34px);
+  color: #2CB0ED;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.ex-empty-title {
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+}
+
+.ex-empty-sub {
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: #888;
+  max-width: 380px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ex-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  color: #fff;
+  background: #2CB0ED;
+  padding: clamp(10px, 1.2vw, 14px) clamp(22px, 3vw, 34px);
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(44,176,237,0.35);
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.ex-cta-btn:hover {
+  background: #1a9ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(44,176,237,0.45);
+}
+
+/* ============================================
+   EDUCATION TIMELINE
+   ============================================ */
+.edu-timeline {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 4vw, 40px);
+  padding: clamp(10px, 2vw, 20px) 0;
+}
+
+/* Center vertical line */
+.edu-center-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(44,176,237,0.3) 15%, rgba(44,176,237,0.3) 85%, transparent);
+  transform: translateX(-50%);
+}
+
+/* Card wrap — alternates left/right */
+.edu-card-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: calc(50% + 32px);
+  position: relative;
+}
+
+.edu-card-wrap--right {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: calc(50% + 32px);
+}
+
+/* Card */
 .edu-card {
-  height: 33vh;
-  width: 40vw;
-  -webkit-box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 9px 9px 13px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
-  font-family: cursive;
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(18px, 2.5vw, 28px) clamp(16px, 2vw, 24px);
+  box-shadow:
+    6px 6px 20px rgba(191, 190, 190, 0.4),
+    -3px -3px 10px rgba(255, 255, 255, 0.9);
+  width: 100%;
+  max-width: 360px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 3px solid #2CB0ED;
 }
-.edu-card h1 {
-  margin-top: 10px;
-  font-size: 23px;
-}
-.edu-card p {
-  font-weight: 400;
-  margin-top: 15px;
-}
-.edu-line {
-  height: 2px;
-  margin-top: 3vw;
-  width: 5vw;
-  background-color: #d5d5d6;
-}
-.edu-icon {
-  position: absolute;
-  right: -4%;
-  top: 9%;
-  background-color: #7e7f80;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -o-border-radius: 60px;
-  font-size: 1.1vw;
-  border: 1px solid #c8c8c9;
-  -webkit-border-radius: 60px;
-  -moz-border-radius: 60px;
-  -ms-border-radius: 60px;
-  border-radius: 60px;
-}
-.edu-container2 {
-  margin:0px 10vw;
-  border-left: 1px solid #d1cfcf;
-  width: 42vw;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  left:41.8%;
-}
-.edu-card2 {
-  height: 33vh;
-  width:40vw;
-  -webkit-box-shadow: 6px 6px 13px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 9px 9px 13px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
-  font-family: cursive;
-}
-.edu-icon2 {
-  position: absolute;
-  left:-4%;
-  top: 9%;
-  background-color: #656567;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  -o-border-radius: 60px;
-  font-size: 1.1vw;
-  border: 1px solid #c8c8c9;
-  -webkit-border-radius: 60px;
-  -moz-border-radius: 60px;
-  -ms-border-radius: 60px;
-  border-radius: 60px;
-}
-.edu-line2 {
-  height: 2px;
-  width: 5vw;
-  background-color: #c8c8c9;
-  margin:2.7rem 0px;
 
+.edu-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    8px 16px 36px rgba(44,176,237,0.18),
+    -3px -3px 10px rgba(255,255,255,0.9);
 }
-/* ======================================= css to make it responsive for the laptop ==============================  */
+
+.edu-year {
+  font-size: clamp(10px, 1.1vw, 13px);
+  font-weight: 700;
+  color: #2CB0ED;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.edu-degree {
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 800;
+  color: #1a1a2e;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.edu-school {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: #666;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edu-school i,
+.edu-grade i {
+  color: #2CB0ED;
+  font-size: 0.85em;
+  flex-shrink: 0;
+}
+
+.edu-grade {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: #888;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* Timeline dot */
+.edu-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(36px, 4vw, 48px);
+  height: clamp(36px, 4vw, 48px);
+  border-radius: 50%;
+  background: #2CB0ED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: clamp(13px, 1.5vw, 17px);
+  box-shadow: 0 0 0 4px rgba(44, 176, 237, 0.2), 0 4px 16px rgba(44,176,237,0.35);
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.edu-card-wrap:hover .edu-dot {
+  transform: translateX(-50%) scale(1.15);
+}
+
+/* Connector line (card → center dot) */
+.edu-connector {
+  position: absolute;
+  top: 50%;
+  right: calc(50% + 0px);
+  width: 32px;
+  height: 2px;
+  background: rgba(44, 176, 237, 0.3);
+  transform: translateY(-50%);
+}
+
+.edu-card-wrap--right .edu-connector {
+  right: auto;
+  left: calc(50% + 0px);
+}
+
+/* ============================================
+   RESPONSIVE — Laptop (769px – 1200px)
+   ============================================ */
 @media (max-width: 1200px) {
-  .Skill{
-    width: 100vw;
-    height: 100vh;
-  }
-  .Skill-card {
-    margin: auto;
-    justify-content: center;
-    width: 90vw;
-  }
-  .card {
-    width: 180px;
-    height: 140px;
-  }
-  .edu-container {
-    width:45vw;
-    margin: 5vw 5vw;
-  }
-  .edu-card {
-    width: 80vw;
-  }
-  .edu-container2 {
-    width:45vw;
-    margin: 5vw 5vw;
-  }
-  .edu-card2 {
-    width: 80vw;
+  .skill-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-/* ================================ css to make it responsive  for the tablet ================================= */
-@media (max-width: 768px) {
-  .Skill {
-    height: auto;
-  }
-  .skill-btn {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .Skill-card {
-    margin: 5vw 1vw 10vw 1vw;
-    width: 98vw;
-  }
-  .card {
-    width: 160px;
-    height: 130px;
-  }
-  .edu-container {
-    width:50vw;
-    margin:0 2rem;
-  }
-  .edu-card {
-    width: 90vw;
-  }
-  .edu-icon {
-    font-size: 2vw;
-    right: -6%;
-    top: 12%;
-  }
-  .edu-container2 {
-    width:50vw;
-    margin:5px 2rem;
-  }
-  .edu-card2 {
-    width: 90vw;
-  }
-  .edu-icon2 {
-    font-size: 2vw;
-    right: -6%;
-    top: 12%;
-  }
-}
-/* =========================================== css to make it responsive for the mobile device =========================== */
 
-@media (max-width: 480px) {
-  .skill-btn {
-    font-size: 1.2rem;
-    height: 8vw;
+/* ============================================
+   RESPONSIVE — Tablet (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .skill-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .Skill-card {
-    margin: 5vw 0.5vw 10vw 0.5vw;
-    width: 100vw;
+
+  .skill-tabs {
+    border-radius: 20px;
+    gap: 6px;
   }
-  .card {
-    width: 140px;
-    height: 120px;
+
+  /* Collapse timeline to single column */
+  .edu-center-line { display: none; }
+
+  .edu-card-wrap,
+  .edu-card-wrap--right {
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
-  .edu-container {
-    width: 80vw;
-    margin: auto;
+
+  .edu-dot {
+    position: relative;
+    left: auto;
+    transform: none;
   }
+
+  .edu-card-wrap:hover .edu-dot {
+    transform: scale(1.1);
+  }
+
+  .edu-connector { display: none; }
+
   .edu-card {
-    width: 95vw;
-    height: auto;
+    max-width: 100%;
+    width: 100%;
   }
-  .edu-card h1 {
-    font-size: 5vw;
+}
+
+/* ============================================
+   RESPONSIVE — Mobile (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .skill-section {
+    padding: 70px 12px 40px;
+    gap: 20px;
   }
-  .edu-icon {
-    right: -8%;
-    top: 15%;
+
+  .skill-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-  .edu-container2 {
-    width: 80vw;
-    margin-left: -7rem;
-    margin-top: 2rem;
+
+  .skill-tab-btn {
+    padding: 8px 14px;
+    font-size: 11px;
   }
-  .edu-card2 {
-    width: 95vw;
-    height: auto;
+
+  .skill-tab-btn span {
+    display: none;
   }
-  .edu-icon2 {
-    right: -8%;
-    top: 15%;
+
+  .skill-tab-btn i {
+    font-size: 15px;
   }
+
+  .skill-tabs {
+    border-radius: 16px;
+    padding: 5px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Digital Watch (max-width: 250px)
+   ============================================ */
+@media (max-width: 250px) {
+  .skill-section {
+    padding: 8px 6px 16px;
+    gap: 8px;
+    min-height: auto;
+  }
+
+  .skill-eyebrow { display: none; }
+
+  .skill-heading h2 {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .skill-subtext { display: none; }
+
+  .skill-tabs {
+    padding: 3px;
+    gap: 3px;
+    border-radius: 12px;
+  }
+
+  .skill-tab-btn {
+    padding: 5px 8px;
+    font-size: 8px;
+    gap: 3px;
+  }
+
+  .skill-tab-btn span { display: none; }
+  .skill-tab-btn i    { font-size: 11px; }
+
+  .skill-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .skill-card {
+    padding: 10px 8px;
+    border-radius: 10px;
+  }
+
+  .skill-card-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .skill-card-name { font-size: 8px; }
+  .skill-level     { font-size: 7px; }
+
+  .ex-empty-title  { font-size: 12px; }
+  .ex-empty-sub    { font-size: 8px;  }
+  .ex-cta-btn      { font-size: 9px; padding: 6px 12px; }
+
+  .edu-degree { font-size: 10px; }
+  .edu-school,
+  .edu-grade  { font-size: 8px;  }
 }

@@ -1,83 +1,144 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./home/home.css";
+import "./navbar.css";
+
+const navLinks = [
+  { label: "Home",     to: "#home"        },
+  { label: "About",    to: "#about"   },
+  { label: "Services", to: "#services"},
+  { label: "Project",  to: "#project" },
+  { label: "Contact",  to: "#contact" },
+];
+
 const Navbar = () => {
-  const storedTheme = localStorage.getItem("theme") || "light";
-    const [theme, setTheme] = useState(storedTheme);
-    const [isDark, setIsDark] = useState(storedTheme === "dark");
-  
-    // State for menu toggle
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-    // Toggle menu
-    const HandleShowMenu = () => setIsMenuOpen(!isMenuOpen);
-    const handleCloseMenu = () => setIsMenuOpen(false);
-  
-    // Toggle theme
-    const handleTheme = () => {
-      const newTheme = theme === "light" ? "dark" : "light";
-      setTheme(newTheme);
-      setIsDark(newTheme === "dark");
-      localStorage.setItem("theme", newTheme);
+  const [theme,      setTheme]      = useState(() => localStorage.getItem("theme") || "light");
+  const [isDark,     setIsDark]     = useState(() => localStorage.getItem("theme") === "dark");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled,   setScrolled]   = useState(false);
+  const [hidden,     setHidden]     = useState(false);
+
+  // Track scroll position + direction
+  useEffect(() => {
+    let lastY = window.scrollY;
+
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 50);
+      // Hide navbar when scrolling DOWN fast, show when scrolling UP
+      setHidden(currentY > lastY && currentY > 120);
+      lastY = currentY;
     };
-  
-    // Apply theme changes
-    useEffect(() => {
-      document.body.style.backgroundColor = isDark ? "#2D2D2D" : "#EFF0F4";
-      document.body.style.color = isDark ? "#F8FAFC" : "#000";
-    }, [isDark]);
-  
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Apply theme to body
+  useEffect(() => {
+    document.body.style.backgroundColor = isDark ? "#2D2D2D" : "#EFF0F4";
+    document.body.style.color           = isDark ? "#F8FAFC" : "#1a1a2e";
+  }, [isDark]);
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => { if (window.innerWidth > 768) setIsMenuOpen(false); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    setIsDark(next === "dark");
+    localStorage.setItem("theme", next);
+  };
+
+  const toggleMenu  = () => setIsMenuOpen((o) => !o);
+  const closeMenu   = () => setIsMenuOpen(false);
+
   return (
-    <div>
-        <nav className={`home-nav ${isDark ? "bg-[#2D2D2D]" : "bg-[#f1f1f1]"}`}>
-          <div className="logo-img">
-            <img src="/header.jpg" alt="Logo" />
-          </div>
+    <>
+      <nav
+        className={[
+          "navbar",
+          scrolled   ? "navbar--scrolled" : "",
+          hidden     ? "navbar--hidden"   : "",
+          isDark     ? "navbar--dark"     : "navbar--light",
+        ].join(" ")}
+      >
+        {/* Logo */}
+        <div className="navbar-logo">
+          <img src="/header.jpg" alt="Dipak Logo" />
+          <span className="navbar-logo-name">Dipak<span className="navbar-logo-dot">.</span></span>
+        </div>
 
-        
-          <div className="home-menu">
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/project">Project</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-              {/* <li><a href="#about">About</a></li>
-              <li><a href="#skill">Services</a></li>
-              <li><a href="#project">Project</a></li>
-              <li><a href="#contact">Contact</a></li> */}
-            </ul>
+        {/* Desktop links */}
+        <ul className="navbar-links">
+          {navLinks.map(({ label, to }) => (
+            <li key={label}>
+              <a href={to} className="navbar-link" onClick={closeMenu}>
+  {label}
+</a>
+            </li>
+          ))}
+        </ul>
 
-            {/* Menu Toggle */}
-            <p className="nav-icon" onClick={HandleShowMenu} role="button" aria-label="Toggle Menu">
-              {isMenuOpen ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
-            </p>
-          </div>
-
-          {/* Theme Toggle */}
-          <div className="theme" onClick={handleTheme} role="button" aria-label="Toggle Theme">
-            <p className={`transition-transform duration-700 ${isDark ? "translate-x-0" : "translate-x-12 light"}`}>
-              {isDark ? <i className="fa-solid fa-sun"></i> : <i className="fa-solid fa-moon"></i>}
-            </p>
-          </div>
-
-          {/* Mobile Menu */}
-          <div
-            className={`hidden-menu absolute right-0 top-20 w-full h-96 text-black p-4 transition-transform duration-700 
-            ${isMenuOpen ? "translate-y-0" : "translate-x-full"}`}
+        {/* Right side controls */}
+        <div className="navbar-controls">
+          {/* Theme toggle */}
+          <button
+            className={`theme-toggle ${isDark ? "theme-toggle--dark" : "theme-toggle--light"}`}
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
           >
-            <ul>
-              <li><a onClick={handleCloseMenu} href="/">Home</a></li>
-              <li><a onClick={handleCloseMenu} href="/about">About</a></li>
-              <li><a onClick={handleCloseMenu} href="/services">Services</a></li>
-              <li><a onClick={handleCloseMenu} href="/project">Project</a></li>
-              <li><a onClick={handleCloseMenu} href="/contact">Contact</a></li>
-            </ul>
-          </div>
-        </nav>
-    </div>
-  )
-}
+            <div className="theme-toggle-thumb">
+              <i className={`fa-solid ${isDark ? "fa-sun" : "fa-moon"}`}></i>
+            </div>
+          </button>
 
-export default Navbar
+          {/* Hire Me button (desktop) */}
+          {/* <Link to="/contact" className="navbar-hire-btn">Hire Me</Link> */}
+          <a href="#contact" className="navbar-hire-btn" onClick={closeMenu}>
+  Hire Me
+</a>
+
+          {/* Hamburger (mobile) */}
+          <button
+            className={`navbar-hamburger ${isMenuOpen ? "navbar-hamburger--open" : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile dropdown */}
+      <div className={`navbar-mobile ${isMenuOpen ? "navbar-mobile--open" : ""} ${isDark ? "navbar-mobile--dark" : ""}`}>
+        <ul>
+          {navLinks.map(({ label, to }) => (
+            <li key={label}>
+              {/* <Link to={to} onClick={closeMenu} className="navbar-mobile-link">{label}</Link> */}
+              <a href={to} className="navbar-mobile-link" onClick={closeMenu}>
+  {label}
+</a>
+            </li>
+          ))}
+          <li>
+            <Link to="/contact" onClick={closeMenu} className="navbar-mobile-hire">Hire Me</Link>
+            <a href="#contact" className="navbar-mobile-hire" onClick={closeMenu}>
+  Hire Me
+</a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Overlay behind mobile menu */}
+      {isMenuOpen && (
+        <div className="navbar-overlay" onClick={closeMenu} />
+      )}
+    </>
+  );
+};
+
+export default Navbar;

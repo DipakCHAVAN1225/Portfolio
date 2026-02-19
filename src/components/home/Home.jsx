@@ -82,8 +82,8 @@ function Home() {
               {/* <span className={`${isDark ? "after:bg-[#2D2D2D]" : "after:bg-[#EFF0F4]"}`}></span> */}
             </h1>
             <p ref={homeP}>Let&apos;s Explore My Journey</p>
-            <a href="/about">
-              <button>More About Me</button>
+            <a href="#about">
+              <button className="nav-hire-btn"> More About Me</button>
             </a>
           </section>
 

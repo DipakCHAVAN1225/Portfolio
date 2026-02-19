@@ -3,79 +3,92 @@ import Education from "./Education";
 import Ex from "./Ex";
 import MySkill from "./Myskill";
 import "./skill.css";
-
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Skill = () => {
-  const [activeTab, setActiveTab] = useState("skill"); // Store string instead of JSX
+gsap.registerPlugin(ScrollTrigger);
 
-  // Ref for GSAP animation
+const tabs = [
+  { key: "skill",      label: "Skills",      icon: "fa-code"          },
+  { key: "experience", label: "Experience",   icon: "fa-briefcase"     },
+  { key: "education",  label: "Education",    icon: "fa-graduation-cap" },
+];
+
+const Skill = () => {
+  const [activeTab, setActiveTab] = useState("skill");
   const containerRef = useRef(null);
-  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.from(".tab-buttons", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".tab-buttons",
-        start: "top 96%",
-        end: "top 30%",
-        scrub:1,
-      },
-    });
+    const ctx = gsap.context(() => {
+      gsap.from(".skill-heading", {
+        opacity: 0,
+        y: -40,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".skill-heading",
+          start: "top 88%",
+          end: "top 55%",
+          scrub: 1,
+        },
+      });
+
+      gsap.from(".skill-tabs", {
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".skill-tabs",
+          start: "top 92%",
+          end: "top 60%",
+          scrub: 1,
+        },
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
   }, { scope: containerRef });
 
-  // Function to render the active component
   const renderContent = () => {
     switch (activeTab) {
-      case "skill":
-        return <MySkill />;
-      case "experience":
-        return <Ex />;
-      case "education":
-        return <Education />;
-      default:
-        return <MySkill />;
+      case "skill":      return <MySkill />;
+      case "experience": return <Ex />;
+      case "education":  return <Education />;
+      default:           return <MySkill />;
     }
   };
 
   return (
-    <div ref={containerRef} className="Skill" id="skill">
-      {/* Tab Buttons */}
-      <div className="tab-buttons flex space-x-4 justify-center">
-        <button
-          className={`px-4 py-2 rounded-md ${
-            activeTab === "skill" ? "bg-blue-700" : "bg-blue-500 hover:bg-blue-700"
-          } text-white`}
-          onClick={() => setActiveTab("skill")}
-        >
-          Skill
-        </button>
-        <button
-          className={`px-4 py-2 rounded-md ${
-            activeTab === "experience" ? "bg-green-700" : "bg-green-500 hover:bg-green-700"
-          } text-white`}
-          onClick={() => setActiveTab("experience")}
-        >
-          Experience
-        </button>
-        <button
-          className={`px-4 py-2 rounded-md ${
-            activeTab === "education" ? "bg-red-700" : "bg-red-500 hover:bg-red-700"
-          } text-white`}
-          onClick={() => setActiveTab("education")}
-        >
-          Education
-        </button>
+    <div ref={containerRef} className="skill-section" id="skill">
+
+      {/* Heading */}
+      <div className="skill-heading">
+        <span className="skill-eyebrow">What I Know</span>
+        <h2>Skills &amp; <span className="skill-highlight">Background</span></h2>
+        <p className="skill-subtext">Technologies I work with, my experience, and my educational journey.</p>
       </div>
 
-      {/* Content Section */}
-      <div className="mt-4">{renderContent()}</div>
+      {/* Tab buttons */}
+      <div className="skill-tabs">
+        {tabs.map(({ key, label, icon }) => (
+          <button
+            key={key}
+            className={`skill-tab-btn ${activeTab === key ? "skill-tab-btn--active" : ""}`}
+            onClick={() => setActiveTab(key)}
+          >
+            <i className={`fa-solid ${icon}`}></i>
+            <span>{label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Tab content */}
+      <div className="skill-content">
+        {renderContent()}
+      </div>
+
     </div>
   );
 };

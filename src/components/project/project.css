@@ -1,161 +1,352 @@
-/* ================== css for the project section ============================== */
-.project-container{
-  width: 100vw;
+/* ============================================
+   PROJECT.CSS — Projects Section
+   ============================================ */
+
+/* ---------- SECTION BASE ---------- */
+.project-container {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: clamp(28px, 4vw, 52px);
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+/* Subtle background blobs */
+.project-container::before {
+  content: "";
+  position: absolute;
+  width: clamp(200px, 40vw, 500px);
+  height: clamp(200px, 40vw, 500px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.06) 0%, transparent 70%);
+  top: -10%;
+  left: -8%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.project-container::after {
+  content: "";
+  position: absolute;
+  width: clamp(150px, 30vw, 380px);
+  height: clamp(150px, 30vw, 380px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.04) 0%, transparent 70%);
+  bottom: -8%;
+  right: -5%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   HEADING
+   ============================================ */
+.project-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.project-eyebrow {
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 600;
+  color: #2CB0ED;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  background: rgba(44, 176, 237, 0.08);
+  border-radius: 100px;
+  border: 1px solid rgba(44, 176, 237, 0.2);
+}
+
+.project-heading h1 {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.project-highlight {
+  color: #2CB0ED;
+}
+
+.project-subtext {
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: #888;
+  max-width: 460px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   CARDS GRID
+   ============================================ */
+.project-grid {
+  width: 100%;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   PROJECT CARD
+   ============================================ */
+.project-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    6px 6px 20px rgba(191, 190, 190, 0.4),
+    -3px -3px 10px rgba(255, 255, 255, 0.9);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.35s ease;
+  cursor: pointer;
+  display: flex;
   flex-direction: column;
 }
-.project-container h1{
-  color:#2bb0ed;
-  font-size: 4vw;
-  font-weight: 600;
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    10px 20px 50px rgba(44, 176, 237, 0.18),
+    -3px -3px 10px rgba(255, 255, 255, 0.9);
 }
 
+.project-card--no-link {
+  cursor: default;
+}
 
-.project{
-  width: 95vw;
-  height: auto;
-  display: flex;
-  flex-wrap:wrap;
-  
+/* ---------- IMAGE AREA ---------- */
+.project-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
-.project-card{
-  margin: 2rem;
-  padding:1rem;
-  height: auto;
-  box-shadow:5px 5px 5px rgb(191, 190, 190);
-  
-}
-.project-img{
-  -o-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-.project-img img{
+
+.project-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  -o-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-}
-.h-pro-name{
-margin-top: -1.4rem;
-opacity: 0;
-color: #2bb0ed;
-  font-weight: 800;
-  cursor: pointer;
-
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.project-card:hover .project-img {
+  transform: scale(1.08);
+}
 
-.project-card:hover .h-pro-name{
+/* Overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 12, 26, 0) 0%,
+    rgba(11, 12, 26, 0.75) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: clamp(12px, 2vw, 20px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-overlay {
   opacity: 1;
 }
-.project-card:hover .project-img{
- -o-transform: translateY(-10%);
- -webkit-transform: translateY(-20%);
- -moz-transform: translateY(-20%);
- -ms-transform: translateY(-20%);
- transform: translateY(-20%);
+
+/* View button inside overlay */
+.project-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 700;
+  color: #fff;
+  background: #2CB0ED;
+  border: none;
+  border-radius: 100px;
+  padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 26px);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(44, 176, 237, 0.5);
+  transition: all 0.3s ease;
+  transform: translateY(10px);
+  font-family: inherit;
 }
-/* /* ================================== responsive css for the mobile device======================== */
+
+.project-card:hover .project-view-btn {
+  transform: translateY(0);
+}
+
+.project-view-btn:hover:not(:disabled) {
+  background: #1a9ed8;
+  box-shadow: 0 8px 28px rgba(44, 176, 237, 0.6);
+}
+
+.project-view-btn:disabled {
+  background: rgba(255,255,255,0.25);
+  box-shadow: none;
+  cursor: default;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ---------- CARD INFO ---------- */
+.project-info {
+  padding: clamp(12px, 1.8vw, 18px) clamp(14px, 2vw, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-name {
+  font-size: clamp(13px, 1.3vw, 17px);
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  transition: color 0.25s ease;
+}
+
+.project-card:hover .project-name {
+  color: #2CB0ED;
+}
+
+/* Tech tags */
+.project-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  font-size: clamp(9px, 1vw, 11px);
+  font-weight: 600;
+  color: #2CB0ED;
+  background: rgba(44, 176, 237, 0.08);
+  border: 1px solid rgba(44, 176, 237, 0.2);
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+.project-card:hover .project-tag {
+  background: #2CB0ED;
+  color: #fff;
+  border-color: #2CB0ED;
+}
+
+/* ============================================
+   RESPONSIVE — Laptop (769px – 1024px)
+   ============================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Tablet (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .project-container {
+    padding: clamp(60px, 10vw, 90px) clamp(14px, 4vw, 30px) clamp(40px, 8vw, 70px);
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(12px, 2vw, 20px);
+  }
+
+  /* Show overlay always on touch */
+  .project-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 12, 26, 0) 50%,
+      rgba(11, 12, 26, 0.65) 100%
+    );
+  }
+
+  .project-view-btn {
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Mobile (max-width: 480px)
+   ============================================ */
 @media (max-width: 480px) {
   .project-container {
-      height: auto;
-      margin-top: 10vh;
+    padding: 70px 12px 40px;
+    gap: 20px;
   }
-  section h1{
-    font-size: 3rem !important;
-  }
-  .project{
-    height: auto;
-  }
-  .project-card {
-    width:100%;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
 
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
-  .project-img {
-    width: 100%;
-    height: auto;
-  }
-  .h-pro-name, .project-detail {
-    font-size: 1rem;
+
+  .project-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
   }
 }
-/* /* ============================= responsive css for the tablet device ==================================== */
- @media (max-width: 768px) {
-  .project-container {
-    width: 100%;
-    height: auto;
-    padding: 1rem;
-  }
-  .project {
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-  }
-  .project-card {
-    width: 100%;
-    margin: 1rem 0;
-  }
-  .project-img {
-    width: 100%;
-    height: auto;
-    margin: 0;
-  }
-  .h-pro-name, .project-detail {
-    text-align: center;
-  }
-}
-/* /* ========================================= responsive css for the laptop or computer device=========================== */
 
-@media (min-width: 769px) and (max-width: 1024px) {
+/* ============================================
+   RESPONSIVE — Digital Watch (max-width: 250px)
+   ============================================ */
+@media (max-width: 250px) {
   .project-container {
-    padding: 2rem;
-    height: auto;
+    padding: 8px 6px 16px;
+    gap: 10px;
   }
-  .project{
-    height: auto;
+
+  .project-eyebrow { display: none; }
+
+  .project-heading h1 {
+    font-size: 14px;
+    letter-spacing: 0;
   }
-  .project-card {
-    width: 45%;
-    margin: 1rem;
+
+  .project-subtext { display: none; }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
-  .project-img {
-    width: 100%;
-    height: auto;
+
+  .project-info {
+    padding: 8px 10px;
+    gap: 4px;
   }
-  .h-pro-name, .project-detail {
-    font-size: 1.2rem;
+
+  .project-name {
+    font-size: 9px;
   }
-} 
-/* /*===================================responsive for project section ============================ */
-@media (min-width: 1025px) {
-  .project-container {
-    padding: 3rem;
-    height: auto;
+
+  .project-tag {
+    font-size: 7px;
+    padding: 2px 6px;
   }
-  .project {
-    width:95vw;
-    height: auto;
-  }
-  .project-card {
-    width:28%;
-    margin: 1.5rem;
-  }
-  .project-img {
-    width: 100%;
-    height: auto;
-  }
-  .h-pro-name, .project-detail {
-    font-size: 1rem;
+
+  .project-view-btn {
+    font-size: 8px;
+    padding: 5px 10px;
   }
 }

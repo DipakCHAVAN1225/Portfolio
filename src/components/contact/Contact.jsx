@@ -4,169 +4,236 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Contact() {
-  // State for handling user input
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-
   const [showPopup, setShowPopup] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const containerRef = useRef(null);
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    fetch("https://sheetdb.io/api/v1/g2hk8hj79ymzx", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: [
-          {
-            name: formData.name,
-            email: formData.email,
-            subject: formData.subject,
-            message: formData.message,
-          },
-        ],
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("Form submitted:", data));
+    try {
+      const res = await fetch("https://sheetdb.io/api/v1/g2hk8hj79ymzx", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              name: formData.name,
+              email: formData.email,
+              subject: formData.subject,
+              message: formData.message,
+            },
+          ],
+        }),
+      });
+      await res.json();
+    } catch (err) {
+      console.error("Submission error:", err);
+    }
 
+    setIsSubmitting(false);
     setShowPopup(true);
     setFormData({ name: "", email: "", subject: "", message: "" });
 
-    // Hide popup after 5 seconds
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 5000);
+    setTimeout(() => setShowPopup(false), 5000);
   };
 
-  // ================= GSAP Animations =================
-  const containerRef = useRef(null);
-  gsap.registerPlugin(ScrollTrigger);
+  // GSAP Animations
+  useGSAP(
+    () => {
+      const ctx = gsap.context(() => {
+        // Heading
+        gsap.from(".contact-heading", {
+          opacity: 0,
+          y: -40,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".contact-heading",
+            start: "top 90%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        });
 
-  useGSAP(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".contact-detail", {
-        opacity: 0,
-        y: 100,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".contact-detail",
-          start: "top 98%",
-          end: "top 40%",
-          scrub:1,
-        },
-      });
+        // Info cards stagger
+        gsap.from(".contact-card", {
+          opacity: 0,
+          y: 60,
+          stagger: 0.15,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".contact-detail",
+            start: "top 90%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        });
 
-      gsap.from(".form input", {
-        opacity: 0,
-        x: -200,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".form input",
-          start: "top 98%",
-          end: "top 40%",
-          scrub:1,
-        },
-      });
+        // Inputs from left
+        gsap.from(".form-input .contact-input", {
+          opacity: 0,
+          x: -80,
+          stagger: 0.15,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".form",
+            start: "top 90%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        });
 
-      gsap.from(".form textarea", {
-        opacity: 0,
-        x: 200,
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".form textarea",
-          start: "top 98%",
-          end: "top 40%",
-          scrub:1,
-        },
-      });
+        // Textarea from right
+        gsap.from(".contact-textarea", {
+          opacity: 0,
+          x: 80,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".form",
+            start: "top 90%",
+            end: "top 50%",
+            scrub: 1,
+          },
+        });
 
-      gsap.from("h2", {
-        opacity: 0,
-        y: -50,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: "h2",
-          start: "top 98%",
-          end: "top 40%",
-          scrub:1,
-        },
-      });
-    }, containerRef);
+        // Submit button
+        gsap.from(".submit-btn", {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: ".submit-btn",
+            start: "top 95%",
+            toggleActions: "play none none none",
+          },
+        });
+      }, containerRef);
 
-    return () => ctx.revert(); // Cleanup on unmount
-  }, { scope: containerRef });
+      return () => ctx.revert();
+    },
+    { scope: containerRef }
+  );
+
+  const contactInfo = [
+    { icon: "fa-phone",        label: "Phone",         value: "9322706604",         href: "tel:9322706604" },
+    { icon: "fa-envelope",     label: "Email Address",  value: "dc741094@gmail.com",  href: "mailto:dc741094@gmail.com" },
+    { icon: "fa-location-dot", label: "Address",        value: "Pune, Maharashtra",   href: "#" },
+  ];
 
   return (
     <section ref={containerRef} className="contact-container" id="contact">
-      <h2>CONTACT</h2>
 
-      {/* Contact Info Cards */}
-      <div className="contact-detail">
-        <section className="contact-card">
-          <i className="fa-solid fa-phone"></i>
-          <strong>Phone</strong>
-          <p>9322706604</p>
-        </section>
-        <section className="contact-card">
-          <i className="fa-solid fa-envelope"></i>
-          <strong>Email Address</strong>
-          <p>dc741094@gmail.com</p>
-        </section>
-        <section className="contact-card">
-          <i className="fa-solid fa-location-dot"></i>
-          <strong>Address</strong>
-          <p>PUNE , Maharashtra</p>
-        </section>
+      {/* Heading */}
+      <div className="contact-heading">
+        <span className="contact-eyebrow">Get In Touch</span>
+        <h2>Contact <span className="contact-highlight">Me</span></h2>
+        <p className="contact-subtext">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
       </div>
 
-      {/* Contact Form */}
-      <div className="contact-form">
-        <form onSubmit={handleSubmit}>
-          <div className="form">
-            <section className="form-input">
-              <input name="name" value={formData.name} onChange={handleChange} type="text" placeholder=" Name.." required />
-              <input name="email" value={formData.email} onChange={handleChange} type="email" placeholder="Email.." required />
-              <input name="subject" value={formData.subject} onChange={handleChange} type="text" placeholder="Subject.." required />
-            </section>
-            <section>
-              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Write your message...." required></textarea>
-            </section>
-          </div>
-          <button type="submit" className="btn">Send Message</button>
-
-          {/* Popup Notification */}
-          {showPopup && (
-            <div className="fixed bottom-5 w-1/3 right-5 bg-green-500 text-white p-4 rounded-lg flex flex-col gap-5 items-center shadow-lg animate-slideIn">
-              <span className="text-2xl">
-                <video src="/Tick.mp4" autoPlay loop height="100px" width="100px" loading="lazy"></video>
-              </span>
-              <span className="text-4xl">Thank you</span>
-              <span className="ml-2 text-lg">Your form submitted successfully!</span>
+      {/* Info Cards */}
+      <div className="contact-detail">
+        {contactInfo.map(({ icon, label, value, href }) => (
+          <a key={label} href={href} className="contact-card">
+            <div className="card-icon-wrap">
+              <i className={`fa-solid ${icon}`}></i>
             </div>
-          )}
+            <strong className="card-label">{label}</strong>
+            <p className="card-value">{value}</p>
+          </a>
+        ))}
+      </div>
+
+      {/* Form */}
+      <div className="contact-form">
+        <form onSubmit={handleSubmit} noValidate>
+          <div className="form">
+
+            {/* Left — inputs */}
+            <div className="form-input">
+              {[
+                { name: "name",    type: "text",  placeholder: "Your Name",    icon: "fa-user"    },
+                { name: "email",   type: "email", placeholder: "Your Email",   icon: "fa-envelope" },
+                { name: "subject", type: "text",  placeholder: "Subject",      icon: "fa-tag"     },
+              ].map(({ name, type, placeholder, icon }) => (
+                <div key={name} className="input-group">
+                  <i className={`fa-solid ${icon} input-icon`}></i>
+                  <input
+                    className="contact-input"
+                    name={name}
+                    type={type}
+                    placeholder={placeholder}
+                    value={formData[name]}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Right — textarea */}
+            <div className="textarea-wrap">
+              <i className="fa-solid fa-message textarea-icon"></i>
+              <textarea
+                className="contact-textarea"
+                name="message"
+                placeholder="Write your message..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" className="submit-btn" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <span className="btn-spinner"></span> Sending...
+              </>
+            ) : (
+              <>
+                <i className="fa-solid fa-paper-plane"></i> Send Message
+              </>
+            )}
+          </button>
         </form>
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup-toast">
+          <div className="popup-icon">
+            <video src="/Tick.mp4" autoPlay loop height="60px" width="60px" loading="lazy" />
+          </div>
+          <div className="popup-text">
+            <strong>Message Sent!</strong>
+            <p>Thank you! I&apos;ll get back to you soon.</p>
+          </div>
+          <button className="popup-close" onClick={() => setShowPopup(false)}>✕</button>
+        </div>
+      )}
     </section>
   );
 }

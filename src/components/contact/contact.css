@@ -1,227 +1,634 @@
-/* ========================= contact part css here =================================== */
-/* new             */
+/* ============================================
+   CONTACT.CSS — Portfolio Contact Section
+   ============================================ */
+
+/* ---------- SECTION BASE ---------- */
 .contact-container {
-  width:100vw;
-  height:100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap:1rem;
-  justify-content: center;
-}
-.contact-container h2{
-  font-size:3rem;
-  font-weight: bolder;
-}
-.contact-detail{
   width: 100%;
-  height:30%;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap:4rem;
-}
-.contact-card{
-
-  width: 22vw;
-  height:9rem;
-  box-shadow:5px 5px 5px 4px rgb(191, 190, 190);
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  -o-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  gap:5px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 56px);
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 6vw, 80px);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
 }
-.contact-card .fa-solid{
-  width: 2vw;
-  height: auto;
+
+/* Background decoration */
+.contact-container::before {
+  content: "";
+  position: absolute;
+  width: clamp(250px, 45vw, 600px);
+  height: clamp(250px, 45vw, 600px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.06) 0%, transparent 70%);
+  bottom: -15%;
+  right: -10%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-container::after {
+  content: "";
+  position: absolute;
+  width: clamp(180px, 30vw, 400px);
+  height: clamp(180px, 30vw, 400px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.04) 0%, transparent 70%);
+  top: -10%;
+  left: -8%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   HEADING
+   ============================================ */
+.contact-heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-eyebrow {
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 600;
   color: #2CB0ED;
-  font-size:2vw;
-  
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  background: rgba(44, 176, 237, 0.08);
+  border-radius: 100px;
+  border: 1px solid rgba(44, 176, 237, 0.2);
 }
-.contact-card:hover{
-  -o-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+
+.contact-heading h2 {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -1px;
 }
-.contact-form{
+
+.contact-highlight {
+  color: #2CB0ED;
+}
+
+.contact-subtext {
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: #888;
+  max-width: 480px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================
+   INFO CARDS
+   ============================================ */
+.contact-detail {
   width: 100%;
-  height:37%;
-  padding-right:6vw;
+  max-width: 1000px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(14px, 2.5vw, 28px);
+  flex-wrap: wrap;
 }
-.contact-form form{
+
+.contact-card {
+  width: clamp(160px, 22vw, 260px);
+  padding: clamp(18px, 2.5vw, 30px) clamp(14px, 2vw, 24px);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow:
+    6px 6px 16px rgba(191, 190, 190, 0.5),
+    -3px -3px 10px rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
-  align-items:end;
-  flex-wrap: wrap;
-  padding:2vw 7vw;
-  justify-content:end;
-  gap:4rem;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
-.form{
-  display: flex;
-  align-items:center;
-  gap:4vw;
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,176,237,0.04), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 18px;
 }
-.form-input{
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    8px 16px 30px rgba(44, 176, 237, 0.18),
+    -3px -3px 10px rgba(255, 255, 255, 0.9);
+}
+
+/* Card icon wrapper */
+.card-icon-wrap {
+  width: clamp(44px, 5vw, 60px);
+  height: clamp(44px, 5vw, 60px);
+  border-radius: 50%;
+  background: rgba(44, 176, 237, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover .card-icon-wrap {
+  background: #2CB0ED;
+}
+
+.card-icon-wrap .fa-solid {
+  color: #2CB0ED;
+  font-size: clamp(16px, 2vw, 22px);
+  transition: color 0.3s ease;
+}
+
+.contact-card:hover .card-icon-wrap .fa-solid {
+  color: #fff;
+}
+
+.card-label {
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 700;
+  color: #1a1a2e;
+  display: block;
+}
+
+.card-value {
+  font-size: clamp(11px, 1.1vw, 14px);
+  color: #888;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* ============================================
+   FORM
+   ============================================ */
+.contact-form {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.contact-form form {
+  display: flex;
   flex-direction: column;
-  gap:1.9rem;
+  align-items: flex-end;
+  gap: clamp(20px, 3vw, 36px);
 }
-.form-input input{
-  background-color: #EFF0F4;
-  box-shadow:5px 5px 5px 4px rgb(191, 190, 190);
-  width:35vw;
-  outline:none;
+
+.form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 3vw, 36px);
+}
+
+/* ---------- INPUTS ---------- */
+.form-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  left: clamp(14px, 2vw, 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2CB0ED;
+  font-size: clamp(12px, 1.3vw, 16px);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.contact-input {
+  width: 100%;
+  height: clamp(46px, 5vw, 58px);
+  padding-left: clamp(38px, 4vw, 50px);
+  padding-right: clamp(16px, 2vw, 22px);
+  border: none;
+  border-radius: 100px;
   background: transparent;
-  padding-left: 2rem;
-  -o-border-radius: 40px;
-  height:3rem;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  border-radius: 40px;
+  box-shadow:
+    5px 5px 12px rgba(191, 190, 190, 0.5),
+    -3px -3px 8px rgba(255, 255, 255, 0.9);
+  font-size: clamp(12px, 1.2vw, 15px);
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
-.form-input input:hover{
-  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+
+.contact-input::placeholder {
+  color: #bbb;
 }
-section textarea{
-  background-color: #EFF0F4;
-  width:35vw;
-  height:13rem;
-  box-shadow:5px 5px 5px 4px rgb(191, 190, 190);
-  
-  outline:none;
+
+.contact-input:focus {
+  box-shadow:
+    inset 3px 3px 8px rgba(191, 190, 190, 0.5),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.8),
+    0 0 0 2px rgba(44, 176, 237, 0.2);
+}
+
+.contact-input:hover:not(:focus) {
+  box-shadow:
+    inset 2px 2px 6px rgba(191, 190, 190, 0.4),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* ---------- TEXTAREA ---------- */
+.textarea-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-icon {
+  position: absolute;
+  top: clamp(14px, 2vw, 18px);
+  left: clamp(14px, 2vw, 20px);
+  color: #2CB0ED;
+  font-size: clamp(12px, 1.3vw, 16px);
+  pointer-events: none;
+}
+
+.contact-textarea {
+  width: 100%;
+  height: clamp(160px, 22vw, 230px);
+  padding: clamp(14px, 2vw, 18px) clamp(14px, 2vw, 20px) clamp(14px, 2vw, 18px) clamp(38px, 4vw, 50px);
+  border: none;
+  border-radius: 0px 24px 24px 24px;
   background: transparent;
-  -o-border-radius: 0px 40px;
-  -webkit-border-radius: 0px 40px;
-  -moz-border-radius: 0px 40px;
-  -ms-border-radius: 0px 40px;
-  border-radius: 0px 40px;
-  padding:1rem;
+  box-shadow:
+    5px 5px 12px rgba(191, 190, 190, 0.5),
+    -3px -3px 8px rgba(255, 255, 255, 0.9);
+  font-size: clamp(12px, 1.2vw, 15px);
+  color: #333;
+  outline: none;
+  resize: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  line-height: 1.6;
 }
-section textarea:hover{
-  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
+
+.contact-textarea::placeholder {
+  color: #bbb;
 }
-.contact-container .btn{
-  width:10rem;
-  height:3rem;
-  color:#2CB0ED;
-  font-weight:500;
-  -o-border-radius:40px;
-  box-shadow:5px 5px 5px 4px rgb(191, 190, 190);
-  -webkit-border-radius:40px;
-  -moz-border-radius:40px;
-  -ms-border-radius:40px;
-  border-radius:40px;
+
+.contact-textarea:focus {
+  box-shadow:
+    inset 3px 3px 8px rgba(191, 190, 190, 0.5),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.8),
+    0 0 0 2px rgba(44, 176, 237, 0.2);
 }
- .btn:hover{
-  box-shadow: 3px 3px 5px rgb(191, 190, 190)inset;
-} 
-.animate-slideIn {
-  animation: slideIn 9s ease-in-out;
+
+.contact-textarea:hover:not(:focus) {
+  box-shadow:
+    inset 2px 2px 6px rgba(191, 190, 190, 0.4),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
 }
-@keyframes slideIn {
-  0% {
-    transform: translateX(100%);
+
+/* ---------- SUBMIT BUTTON ---------- */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: clamp(12px, 1.5vw, 16px) clamp(28px, 4vw, 48px);
+  border: none;
+  border-radius: 100px;
+  background: #2CB0ED;
+  color: #fff;
+  font-size: clamp(13px, 1.3vw, 16px);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(44, 176, 237, 0.35);
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #1a9ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(44, 176, 237, 0.45);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Loading spinner inside button */
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   POPUP TOAST
+   ============================================ */
+.popup-toast {
+  position: fixed;
+  bottom: clamp(16px, 3vw, 28px);
+  right: clamp(16px, 3vw, 28px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(44,176,237,0.15);
+  padding: clamp(14px, 2vw, 20px) clamp(16px, 2.5vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 18px);
+  z-index: 1000;
+  max-width: clamp(260px, 35vw, 380px);
+  animation: toastIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-left: 4px solid #2CB0ED;
+}
+
+.popup-icon {
+  flex-shrink: 0;
+}
+
+.popup-text {
+  flex: 1;
+}
+
+.popup-text strong {
+  display: block;
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #1a1a2e;
+  margin-bottom: 3px;
+}
+
+.popup-text p {
+  font-size: clamp(11px, 1.1vw, 13px);
+  color: #888;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.popup-close {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.06);
+  color: #888;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  padding: 0;
+}
+
+.popup-close:hover {
+  background: rgba(44,176,237,0.1);
+  color: #2CB0ED;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes toastIn {
+  from {
     opacity: 0;
+    transform: translateX(40px) scale(0.9);
   }
-  20% {
-    transform: translateX(0);
+  to {
     opacity: 1;
-  }
-  80% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
+    transform: translateX(0) scale(1);
   }
 }
 
+/* ============================================
+   RESPONSIVE — Tablet (max-width: 900px)
+   ============================================ */
+@media (max-width: 900px) {
+  .contact-container {
+    padding: clamp(60px, 10vw, 100px) clamp(16px, 5vw, 40px) clamp(40px, 8vw, 70px);
+    gap: clamp(24px, 4vw, 40px);
+  }
 
-/* ================================ responsive css for medium device =========================================== */
-@media (max-width: 768px) {
-    .contact-container{
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      gap:6rem;
-    }
-  
   .contact-detail {
-    flex-direction: column;
-    gap: 2rem;
+    gap: clamp(12px, 2vw, 20px);
   }
+
   .contact-card {
-    width: 80vw;
-    height: auto;
-    padding: 1rem;
+    width: clamp(140px, 28vw, 220px);
+    padding: clamp(16px, 2.5vw, 24px) clamp(12px, 2vw, 18px);
   }
-  .contact-card .fa-solid {
-    font-size: 4vw;
-  }
-  .contact-form {
-    padding-right: 2vw;
-  }
-  .contact-form form {
-    padding: 2vw 4vw;
-    gap: 2rem;
-  }
+
   .form {
     flex-direction: column;
-    gap: 2vw;
+    gap: clamp(14px, 2.5vw, 24px);
   }
-  .form-input input {
-    width: 90vw;
-    font-size: 3vw;
-    margin: auto;
-  }
-  section textarea {
-    width: 90vw;
-    font-size: 3vw;
 
+  .contact-input {
+    height: 50px;
   }
-  .contact-container .btn {
-    width: 90%;
-    font-size: 3vw;
-    margin: auto;
+
+  .contact-textarea {
+    height: clamp(140px, 28vw, 200px);
+  }
+
+  .contact-form form {
+    align-items: center;
+  }
+
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
-/* ==================================== responsive css ofr the small device ========================================== */
-@media (max-width: 480px) {
-  .contact-container{
-    display: flex;
+
+/* ============================================
+   RESPONSIVE — Mobile (max-width: 600px)
+   ============================================ */
+@media (max-width: 600px) {
+  .contact-detail {
     flex-direction: column;
-    gap:5vw;
-    margin-top: 10vh;
+    align-items: center;
+    gap: 14px;
   }
+
   .contact-card {
-    width: 90vw;
+    width: min(90vw, 340px);
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 14px 20px;
+    gap: 14px;
   }
-  .contact-card .fa-solid {
-    font-size: 6vw;
+
+  .card-icon-wrap {
+    flex-shrink: 0;
   }
-  .form-input input {
-    width: 90vw;
+
+  .contact-form form {
+    gap: 16px;
   }
-  section textarea {
-    margin-top: 20px;
-    width: 90vw;
+
+  .popup-toast {
+    right: 12px;
+    left: 12px;
+    max-width: none;
+    bottom: 12px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Small Mobile (max-width: 400px)
+   ============================================ */
+@media (max-width: 400px) {
+  .contact-container {
+    padding: 70px 12px 40px;
+  }
+
+  .contact-card {
+    width: 95vw;
+  }
+
+  .contact-input,
+  .contact-textarea {
+    font-size: 13px;
+  }
+
+  .contact-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Digital Watch (max-width: 250px)
+   ============================================ */
+@media (max-width: 250px) {
+  .contact-container {
+    padding: 8px 6px;
+    gap: 10px;
+    min-height: auto;
+  }
+
+  .contact-eyebrow {
+    display: none;
+  }
+
+  .contact-heading h2 {
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .contact-subtext {
+    display: none;
+  }
+
+  .contact-card {
+    width: 95vw;
+    flex-direction: row;
+    padding: 8px 10px;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .card-icon-wrap {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .card-icon-wrap .fa-solid {
+    font-size: 11px;
+  }
+
+  .card-label {
+    font-size: 9px;
+  }
+
+  .card-value {
+    font-size: 8px;
+  }
+
+  .contact-input {
+    height: 34px;
+    font-size: 9px;
+    padding-left: 28px;
+  }
+
+  .input-icon,
+  .textarea-icon {
+    font-size: 9px;
+    left: 10px;
+  }
+
+  .contact-textarea {
+    height: 80px;
+    font-size: 9px;
+    padding-left: 28px;
+  }
+
+  .submit-btn {
+    font-size: 9px;
+    padding: 8px 14px;
+  }
+
+  .popup-toast {
+    right: 4px;
+    left: 4px;
+    bottom: 4px;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .popup-text strong {
+    font-size: 9px;
+  }
+
+  .popup-text p {
+    font-size: 8px;
   }
 }

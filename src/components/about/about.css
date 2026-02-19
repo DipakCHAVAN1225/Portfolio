@@ -1,290 +1,475 @@
-/* =================== Base Styling (Works for Large Screens) ==================== */
+/* ============================================
+   ABOUT.CSS — Portfolio About Section
+   ============================================ */
+
+/* ---------- SECTION BASE ---------- */
 .about {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  padding: 2vw;
+  padding: clamp(40px, 6vw, 80px) clamp(20px, 6vw, 100px);
+  gap: clamp(20px, 4vw, 60px);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
 }
 
-/* ======== Left Side Styling ======== */
+/* Subtle background decoration */
+.about::before {
+  content: "";
+  position: absolute;
+  width: clamp(200px, 40vw, 500px);
+  height: clamp(200px, 40vw, 500px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.07) 0%, transparent 70%);
+  top: -10%;
+  right: -5%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  width: clamp(150px, 30vw, 380px);
+  height: clamp(150px, 30vw, 380px);
+  background: radial-gradient(circle, rgba(44, 176, 237, 0.05) 0%, transparent 70%);
+  bottom: -10%;
+  left: -5%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   LEFT SIDE
+   ============================================ */
 .about-left-side {
   width: 40%;
-  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(16px, 3vw, 32px);
+  flex-shrink: 0;
 }
 
+/* ---------- IMAGE ---------- */
 .about-img {
-  width: 25vw;
-  height: 28vw;
+  position: relative;
+  width: clamp(180px, 22vw, 320px);
+  height: clamp(210px, 26vw, 380px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image scales properly */
+  object-fit: cover;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 20px 60px rgba(44, 176, 237, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: border-radius 0.6s ease;
 }
 
-.connect-me {
-  margin-top: 2vw;
-  width: 25vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 1.5vw;
-}
-
-.connect-me li {
-  width:3vw;
-  height:3vw;
+.about-img img:hover {
   border-radius: 50%;
-  list-style: none;
+}
+
+/* Decorative rings */
+.img-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed rgba(44, 176, 237, 0.25);
+  pointer-events: none;
+  z-index: 1;
+  animation: ringRotate 12s linear infinite;
+}
+
+.img-ring--1 {
+  width: 110%;
+  height: 110%;
+  animation-duration: 12s;
+}
+
+.img-ring--2 {
+  width: 125%;
+  height: 125%;
+  border-color: rgba(44, 176, 237, 0.12);
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+.connect-me {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 5px 5px 5px rgb(191, 190, 190);
-  transition: all 0.3s ease-in-out;
+  gap: clamp(8px, 1.5vw, 16px);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.connect-me li {
+  width: clamp(36px, 3.5vw, 48px);
+  height: clamp(36px, 3.5vw, 48px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -2px -2px 6px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.connect-me li a {
+  color: #888;
+  font-size: clamp(14px, 1.5vw, 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .connect-me li:hover {
-  box-shadow: inset 5px 5px 5px rgb(191, 190, 190);
-  color: #2CB0ED;
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.1), inset -2px -2px 6px rgba(255, 255, 255, 0.9);
   transform: translateY(-5px);
 }
 
-/* ======== Right Side Styling ======== */
+.connect-me li:hover a {
+  color: #2CB0ED;
+}
+
+/* ============================================
+   RIGHT SIDE
+   ============================================ */
 .about-right-side {
   width: 55%;
-  padding: 2vw;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  text-align: start;
-  font-size: 1rem;
+  align-items: flex-start;
+  gap: clamp(12px, 2vw, 20px);
 }
 
+/* Eyebrow label */
+.about-eyebrow {
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 600;
+  color: #2CB0ED;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  background: rgba(44, 176, 237, 0.08);
+  border-radius: 100px;
+  border: 1px solid rgba(44, 176, 237, 0.2);
+}
+
+/* Heading */
 .about-right-side h1 {
-  font-size: 3vw;
-  font-weight: bold;
+  font-size: clamp(28px, 4vw, 56px);
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.highlight {
   color: #2CB0ED;
 }
 
+/* Paragraphs */
 .about-right-side p {
-  width: 100%;
-  z-index: 10;
-  margin-top:20px ;
-  font-size:1.5vw;
-  line-height: 1.5;
-}
-.about-right-side p span{
-  color: #2CB0ED;
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  max-width: 540px;
 }
 
-.about-right-side button {
-  width: 12vw;
-  height: 3vw;
-  font-size: 1.2vw;
-  font-weight: 500;
+/* ---------- SKILL TAGS ---------- */
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.skill-tag {
+  font-size: clamp(10px, 1.1vw, 13px);
+  font-weight: 600;
   color: #2CB0ED;
-  border-radius: 40px;
-  box-shadow: 5px 5px 5px rgb(191, 190, 190);
+  background: rgba(44, 176, 237, 0.08);
+  border: 1px solid rgba(44, 176, 237, 0.25);
+  padding: clamp(4px, 0.6vw, 6px) clamp(10px, 1.2vw, 16px);
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.skill-tag:hover {
+  background: #2CB0ED;
+  color: #fff;
+  border-color: #2CB0ED;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(44, 176, 237, 0.3);
+}
+
+/* ---------- CTA BUTTONS ---------- */
+.about-cta {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 600;
+  padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2.5vw, 32px);
+  border-radius: 100px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
 }
 
-.about-right-side button:hover {
-  box-shadow: inset 3px 3px 5px rgb(191, 190, 190);
+.btn--primary {
+  background: #2CB0ED;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(44, 176, 237, 0.35);
 }
 
-/* ======================== 📱 Mobile Responsive (max-width: 600px) ======================== */
-@media (max-width:450px) {
-  .connect-me li{
-  display: none;
-  }
-  .about-right-side p {
-    font-size:4vw !important;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-}
-@media (max-width: 600px) {
-  .about {
-    flex-direction: column;
-    height: auto;
-    padding: 5vw 2vw;
-    margin-top:10vh;
-  }
-
-  .about-left-side {
-    width: 100%;
-    align-items: center;
-  }
-
-  .about-img {
-    width: 70vw;
-    height: auto;
-  }
-
-  .connect-me {
-    width: 80%;
-    height:40%;
-    flex-wrap: wrap;
-    font-size: 4vw;
-  }
-  .about-right-side {
-    width: 100%;
-    text-align: center;
-    align-items: center;
-  }
-
-  .about-right-side h1 {
-    font-size: 8vw;
-  }
-
-  .about-right-side p {
-    font-size: 4vw;
-    text-align: center;
-  }
-
-  .about-right-side button {
-    padding: 2vw;
-    font-size: 4vw;
-    height:auto;
-  }
+.btn--primary:hover {
+  background: #1a9ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(44, 176, 237, 0.45);
 }
 
-/* ======================== 📟 Tablet Responsive (max-width: 900px) ======================== */
-@media (max-width: 900px) {
-  .about {
-    flex-direction: column;
-    height: auto;
-    padding: 5vw;
-  }
-
-  .about-left-side {
-    width: 100%;
-    align-items: center;
-  }
-
-  .about-img {
-    width: 50vw;
-  }
-
-  .connect-me {
-    width: 60%;
-    font-size: 3vw;
-  }
-
-  .connect-me li {
-    padding:6px;
-    width:6vw;
-    height:6vw;
-  }
-
-  .about-right-side {
-    width: 100%;
-    text-align: center;
-    align-items: center;
-  }
-
-  .about-right-side h1 {
-    font-size: 6vw;
-  }
-
-  .about-right-side p {
-    font-size: 2.5vw;
-  }
-  .about-right-side strong{
-    display: flex;
-    width: 70%;
-    flex-direction: row;
-
-  }
-  .about-right-side button ,a{
-    gap: 20px;
-    width: 100%;
-    padding:1vw;
-    font-size: 2.5vw;
-    height: auto;
-  }
+.btn--primary:active {
+  transform: translateY(-1px);
 }
 
-/* ======================== 💻 Laptop Responsive (1024px - 1440px) ======================== */
+.btn--outline {
+  background: transparent;
+  color: #2CB0ED;
+  border-color: #2CB0ED;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.08);
+}
+
+.btn--outline:hover {
+  background: #2CB0ED;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(44, 176, 237, 0.35);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ============================================
+   RESPONSIVE — Laptop (1024px – 1440px)
+   ============================================ */
 @media (min-width: 1024px) and (max-width: 1440px) {
   .about {
-    flex-direction: row;
-    height: 100vh;
+    padding: 60px 6vw;
   }
 
   .about-left-side {
-    width: 45%;
-    align-items: end;
-    margin-right: 2vw;
-  }
-
-  .about-img {
-    width: 35vw;
-    height: 40vw;
-  }
-
-  .connect-me {
-    width: 30vw;
-    font-size: 1.8vw;
-  }
-
-  .connect-me li {
-    width: 5vw;
-    height: 5vw;
+    width: 42%;
   }
 
   .about-right-side {
     width: 55%;
-    text-align: left;
-  }
-
-  .about-right-side h1 {
-    font-size: 3vw;
-  }
-
-  .about-right-side p {
-    font-size: 1.2vw;
-  }
-
-  .about-right-side button {
-    width: 12vw;
-    font-size: 1.5vw;
   }
 }
 
-/* ======================== 🖥 Widescreen (1440px and above) ======================== */
-@media (min-width: 1440px) {
+/* ============================================
+   RESPONSIVE — Tablet (max-width: 900px)
+   ============================================ */
+@media (max-width: 900px) {
   .about {
-    padding: 4vw;
+    flex-direction: column;
+    min-height: auto;
+    padding: clamp(60px, 10vw, 100px) clamp(20px, 6vw, 50px) clamp(40px, 8vw, 80px);
+    text-align: center;
+  }
+
+  .about-left-side {
+    width: 100%;
   }
 
   .about-img {
-    width: 30vw;
-    height: 35vw;
+    width: clamp(160px, 45vw, 260px);
+    height: clamp(190px, 53vw, 310px);
   }
 
   .connect-me {
-    font-size: 1.5vw;
+    width: auto;
+    justify-content: center;
   }
 
-  .about-right-side h1 {
-    font-size: 2.5vw;
+  .about-right-side {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .about-right-side p {
-    font-size:1.5vw;
+    max-width: 600px;
   }
 
-  .about-right-side button {
-    font-size: 1.2vw;
+  .skills-row {
+    justify-content: center;
+  }
+
+  .about-cta {
+    justify-content: center;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Mobile (max-width: 600px)
+   ============================================ */
+@media (max-width: 600px) {
+  .about {
+    padding: 80px 20px 50px;
+    gap: 28px;
+  }
+
+  .about-img {
+    width: clamp(140px, 60vw, 220px);
+    height: clamp(165px, 70vw, 260px);
+  }
+
+  .img-ring--1,
+  .img-ring--2 {
+    display: none;
+  }
+
+  .connect-me li {
+    width: 38px;
+    height: 38px;
+  }
+
+  .about-right-side {
+    gap: 14px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-cta {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Small Mobile (max-width: 400px)
+   ============================================ */
+@media (max-width: 400px) {
+  .about {
+    padding: 70px 14px 40px;
+  }
+
+  .connect-me li {
+    width: 34px;
+    height: 34px;
+  }
+
+  .connect-me li a {
+    font-size: 13px;
+  }
+
+  .about-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Digital Watch (max-width: 250px)
+   ============================================ */
+@media (max-width: 250px) {
+  .about {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+
+  .about-img {
+    width: 80px;
+    height: 95px;
+  }
+
+  .img-ring--1,
+  .img-ring--2 {
+    display: none;
+  }
+
+  .connect-me {
+    gap: 5px;
+  }
+
+  .connect-me li {
+    width: 26px;
+    height: 26px;
+  }
+
+  .connect-me li a {
+    font-size: 10px;
+  }
+
+  .about-eyebrow {
+    display: none;
+  }
+
+  .about-right-side h1 {
+    font-size: 16px;
+  }
+
+  .about-right-side p {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .skills-row {
+    gap: 4px;
+  }
+
+  .skill-tag {
+    font-size: 7px;
+    padding: 2px 6px;
+  }
+
+  .btn {
+    font-size: 8px;
+    padding: 6px 10px;
   }
 }
