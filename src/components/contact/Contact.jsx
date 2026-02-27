@@ -1,10 +1,5 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./contact.css";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -15,7 +10,7 @@ function Contact() {
   });
   const [showPopup, setShowPopup] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const containerRef = useRef(null);
+  const [focused, setFocused] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,90 +47,8 @@ function Contact() {
     setIsSubmitting(false);
     setShowPopup(true);
     setFormData({ name: "", email: "", subject: "", message: "" });
-
     setTimeout(() => setShowPopup(false), 5000);
   };
-
-  // GSAP Animations
-  useGSAP(
-    () => {
-      const ctx = gsap.context(() => {
-        // Heading
-        gsap.from(".contact-heading", {
-          opacity: 0,
-          y: -40,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".contact-heading",
-            start: "top 90%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        });
-
-        // Info cards stagger
-        gsap.from(".contact-card", {
-          opacity: 0,
-          y: 60,
-          stagger: 0.15,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".contact-detail",
-            start: "top 90%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        });
-
-        // Inputs from left
-        gsap.from(".form-input .contact-input", {
-          opacity: 0,
-          x: -80,
-          stagger: 0.15,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".form",
-            start: "top 90%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        });
-
-        // Textarea from right
-        gsap.from(".contact-textarea", {
-          opacity: 0,
-          x: 80,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".form",
-            start: "top 90%",
-            end: "top 50%",
-            scrub: 1,
-          },
-        });
-
-        // Submit button
-        gsap.from(".submit-btn", {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: ".submit-btn",
-            start: "top 95%",
-            toggleActions: "play none none none",
-          },
-        });
-      }, containerRef);
-
-      return () => ctx.revert();
-    },
-    { scope: containerRef }
-  );
 
   const contactInfo = [
     { icon: "fa-phone",        label: "Phone",         value: "9322706604",         href: "tel:9322706604" },
@@ -144,41 +57,69 @@ function Contact() {
   ];
 
   return (
-    <section ref={containerRef} className="contact-container" id="contact">
+    <section className="contact-container" id="contact">
+
+      {/* Animated background blobs */}
+      <div className="blob blob-1" />
+      <div className="blob blob-2" />
+      <div className="blob blob-3" />
+
+      {/* Floating grid dots */}
+      <div className="dot-grid" />
 
       {/* Heading */}
-      <div className="contact-heading">
-        <span className="contact-eyebrow">Get In Touch</span>
-        <h2>Contact <span className="contact-highlight">Me</span></h2>
-        <p className="contact-subtext">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+      <div className="contact-heading animate-fade-up" style={{ "--delay": "0s" }}>
+        <span className="contact-eyebrow">
+          <span className="eyebrow-dot" />
+          Get In Touch
+          <span className="eyebrow-dot" />
+        </span>
+        <h2>Let&apos;s <span className="contact-highlight">Connect</span></h2>
+        <p className="contact-subtext">Have a project in mind or want to collaborate? I&apos;d love to hear from you.</p>
       </div>
 
       {/* Info Cards */}
       <div className="contact-detail">
-        {contactInfo.map(({ icon, label, value, href }) => (
-          <a key={label} href={href} className="contact-card">
+        {contactInfo.map(({ icon, label, value, href }, i) => (
+          <a
+            key={label}
+            href={href}
+            className="contact-card animate-fade-up"
+            style={{ "--delay": `${0.1 + i * 0.12}s` }}
+          >
+            <div className="card-glow" />
             <div className="card-icon-wrap">
               <i className={`fa-solid ${icon}`}></i>
             </div>
             <strong className="card-label">{label}</strong>
             <p className="card-value">{value}</p>
+            <div className="card-arrow">
+              <i className="fa-solid fa-arrow-up-right-from-square" />
+            </div>
           </a>
         ))}
       </div>
 
       {/* Form */}
-      <div className="contact-form">
+      <div className="contact-form animate-fade-up" style={{ "--delay": "0.45s" }}>
+        <div className="form-header">
+          <span className="form-tag">✦ Send a message</span>
+        </div>
         <form onSubmit={handleSubmit} noValidate>
           <div className="form">
 
             {/* Left — inputs */}
             <div className="form-input">
               {[
-                { name: "name",    type: "text",  placeholder: "Your Name",    icon: "fa-user"    },
-                { name: "email",   type: "email", placeholder: "Your Email",   icon: "fa-envelope" },
-                { name: "subject", type: "text",  placeholder: "Subject",      icon: "fa-tag"     },
-              ].map(({ name, type, placeholder, icon }) => (
-                <div key={name} className="input-group">
+                { name: "name",    type: "text",  placeholder: "Your Name",    icon: "fa-user",    label: "Name"    },
+                { name: "email",   type: "email", placeholder: "Your Email",   icon: "fa-envelope", label: "Email"   },
+                { name: "subject", type: "text",  placeholder: "Subject",      icon: "fa-tag",      label: "Subject" },
+              ].map(({ name, type, placeholder, icon, label }) => (
+                <div
+                  key={name}
+                  className={`input-group ${focused === name ? "is-focused" : ""} ${formData[name] ? "has-value" : ""}`}
+                >
+                  <label className="floating-label">{label}</label>
                   <i className={`fa-solid ${icon} input-icon`}></i>
                   <input
                     className="contact-input"
@@ -187,14 +128,18 @@ function Contact() {
                     placeholder={placeholder}
                     value={formData[name]}
                     onChange={handleChange}
+                    onFocus={() => setFocused(name)}
+                    onBlur={() => setFocused(null)}
                     required
                   />
+                  <span className="input-underline" />
                 </div>
               ))}
             </div>
 
             {/* Right — textarea */}
-            <div className="textarea-wrap">
+            <div className={`textarea-wrap ${focused === "message" ? "is-focused" : ""} ${formData.message ? "has-value" : ""}`}>
+              <label className="floating-label">Message</label>
               <i className="fa-solid fa-message textarea-icon"></i>
               <textarea
                 className="contact-textarea"
@@ -202,19 +147,26 @@ function Contact() {
                 placeholder="Write your message..."
                 value={formData.message}
                 onChange={handleChange}
+                onFocus={() => setFocused("message")}
+                onBlur={() => setFocused(null)}
                 required
               />
+              <span className="textarea-border" />
             </div>
           </div>
 
           <button type="submit" className="submit-btn" disabled={isSubmitting}>
+            <span className="btn-bg" />
             {isSubmitting ? (
               <>
-                <span className="btn-spinner"></span> Sending...
+                <span className="btn-spinner"></span>
+                <span>Sending...</span>
               </>
             ) : (
               <>
-                <i className="fa-solid fa-paper-plane"></i> Send Message
+                <i className="fa-solid fa-paper-plane btn-icon"></i>
+                <span>Send Message</span>
+                <i className="fa-solid fa-arrow-right btn-arrow"></i>
               </>
             )}
           </button>
@@ -224,11 +176,12 @@ function Contact() {
       {/* Popup */}
       {showPopup && (
         <div className="popup-toast">
+          <div className="popup-ring" />
           <div className="popup-icon">
             <video src="/Tick.mp4" autoPlay loop height="60px" width="60px" loading="lazy" />
           </div>
           <div className="popup-text">
-            <strong>Message Sent!</strong>
+            <strong>Message Sent! 🎉</strong>
             <p>Thank you! I&apos;ll get back to you soon.</p>
           </div>
           <button className="popup-close" onClick={() => setShowPopup(false)}>✕</button>

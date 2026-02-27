@@ -1,10 +1,4 @@
 import "./skill.css";
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const educationData = [
   {
@@ -13,6 +7,7 @@ const educationData = [
     school: "Institute of management and career courses (IMCC), Pune",
     grade: "CGPA: 7.50",
     side: "right",
+    icon: "fa-graduation-cap",
   },
   {
     year: "2022 – 2025",
@@ -20,6 +15,7 @@ const educationData = [
     school: "Moolji Jaitha College, Jalgaon",
     grade: "CGPA: 8.53",
     side: "left",
+    icon: "fa-university",
   },
   {
     year: "2021 – 2022",
@@ -27,44 +23,29 @@ const educationData = [
     school: "Gram Vikash Vidyalay, Pimpalgaon Hare",
     grade: "Percentage: 72%",
     side: "right",
+    icon: "fa-school",
   },
 ];
 
 function Education() {
-  const containerRef = useRef(null);
-
-  useGSAP(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".edu-card-wrap", {
-        opacity: 0,
-        x: (i) => (i % 2 === 0 ? -80 : 80),
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%",
-          end: "top 30%",
-          scrub: 2,
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, { scope: containerRef });
-
   return (
-    <div ref={containerRef} className="edu-timeline">
+    <div className="edu-timeline">
       {/* Center line */}
-      <div className="edu-center-line" />
+      <div className="edu-center-line">
+        <div className="edu-center-line-fill" />
+      </div>
 
       {educationData.map((edu, i) => (
         <div
           key={i}
           className={`edu-card-wrap ${edu.side === "right" ? "edu-card-wrap--right" : ""}`}
+          style={{ "--edu-delay": `${i * 0.15}s` }}
         >
           <div className="edu-card">
-            <span className="edu-year">{edu.year}</span>
+            <div className="edu-card-top-bar" />
+            <span className="edu-year">
+              <i className="fa-regular fa-calendar" /> {edu.year}
+            </span>
             <h3 className="edu-degree">{edu.degree}</h3>
             <p className="edu-school">
               <i className="fa-solid fa-location-dot"></i> {edu.school}
@@ -76,7 +57,8 @@ function Education() {
 
           {/* Timeline dot */}
           <div className="edu-dot">
-            <i className="fa-solid fa-graduation-cap"></i>
+            <div className="edu-dot-ring" />
+            <i className={`fa-solid ${edu.icon}`}></i>
           </div>
 
           {/* Connector line */}

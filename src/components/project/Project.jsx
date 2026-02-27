@@ -9,11 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    proName: "Veg Restaurant",
-    proUrl: "/veg restro.png",
+    proName: "Quick Task",
+    proUrl: "/QuickTask.png",
     proDetail: "View Project",
-    link: null,
-    tags: ["HTML", "CSS"],
+    link: "https://q-frontend-rose.vercel.app/",
+    tags: ["MERN"],
   },
   {
     proName: "Synthia Ugwu Clone",
@@ -63,6 +63,13 @@ const projects = [
     proDetail: "View Project",
     link: "https://dipakchavan1225.github.io/weather-app/",
     tags: ["React", "API"],
+  },
+  {
+    proName: "Veg Restaurant",
+    proUrl: "/veg restro.png",
+    proDetail: "View Project",
+    link: null,
+    tags: ["HTML", "CSS"],
   },
   {
     proName: "Currency Changer",
