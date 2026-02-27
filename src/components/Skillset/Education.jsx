@@ -8,10 +8,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const educationData = [
   {
+    year: "2025 – 2027",
+    degree: "Master of Computer Application",
+    school: "Institute of management and career courses (IMCC), Pune",
+    grade: "CGPA: 7.50",
+    side: "right",
+  },
+  {
     year: "2022 – 2025",
     degree: "Bachelor of Computer Application",
     school: "Moolji Jaitha College, Jalgaon",
-    grade: "CGPA: 7.50",
+    grade: "CGPA: 8.53",
     side: "left",
   },
   {
