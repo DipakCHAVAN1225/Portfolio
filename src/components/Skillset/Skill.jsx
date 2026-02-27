@@ -24,12 +24,12 @@ const Skill = () => {
       gsap.from(".skill-heading", {
         opacity: 0,
         y: -40,
-        duration: 1,
+        duration: 0,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ".skill-heading",
-          start: "top 88%",
-          end: "top 55%",
+          start: "top 10%",
+          end: "top 100%",
           scrub: 1,
         },
       });
